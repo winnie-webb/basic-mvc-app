@@ -17,24 +17,29 @@
 
         <section class="signin-options-wrapper">
 
-            <h1 class="signin-options-heading">Signin With</h1>
+            <h1 class="signin-options-heading"><%= formType %> With</h1>
 
             <div class="signin-options signin-options-google">
                 <img class="signin-options__icon " src="./svg/google-icon.svg"/>
-                <h2 class="signin-options__content">Signin With Google</h2>
+                <h2 class="signin-options__content"><%= formType %>  With Google</h2>
             </div>
 
             <div class="signin-options signin-options-facebook">
                 <img class="signin-options__icon" src="./svg/facebook-icon.svg"/>
-                <h2 class="signin-options__content">Signin With Facebook</h2>
+                <h2 class="signin-options__content"><%= formType %> With Facebook</h2>
             </div>    
 
         </section>
 
             <h3 class="signin-split">OR</h3>
 
-        <form class="form">
-
+        <form action="<%= formAction %>"class="form">
+<% if (formType === "signup") {%>
+            <div class="form__input-wrapper">
+                <input required id="email" name="email" type="text" class="form__input"/>
+                <label for="email">Email</label>
+            </div>
+<% } %>
             <div class="form__input-wrapper">
                 <input required id="username" name="username" type="text" class="form__input"/>
                 <label for="username">Username</label>
@@ -46,10 +51,11 @@
             </div>
 
             <div class="form__btn-wrapper">
-                <button class="form__btn" type="submit">Signin</button>
+                <button class="form__btn" type="submit"><%=formType%></button>
             </div>
 
         </form>
     </section>
+    
 </body>
 </html>
