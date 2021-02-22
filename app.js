@@ -16,6 +16,6 @@ app.set("views", viewsDirPath);
 
 // Initialize Routes
 const ExcerciseRouter = require("./routes/ExcerciseRouter");
-
-app.use("/", ExcerciseRouter);
+const AuthRouter = require("./routes/AuthRouter");
+app.use("/", AuthRouter);
 app.listen(PORT, () => console.log("Server has started"));
