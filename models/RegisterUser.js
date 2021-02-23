@@ -1,10 +1,20 @@
 const User = require("./Users");
+const bcrypt = require("bcrypt");
+async function registerUser(req, res, userData) {
+  try {
+    const { password, email, username } = userData;
+    const hashedPassword = await bcrypt.hash(password, 10);
 
-function registerUser(req, res, userData) {
-  const user = new User(userData);
-  user
-    .save()
-    .then(() => next())
-    .catch(() => res.status(500).redirect("/register"));
+    const user = new User({
+      email: email,
+      username: username,
+      password: hashedPassword,
+    });
+
+    await user.save();
+    res.status(201).send();
+  } catch (err) {
+    res.status(500).json(err.message);
+  }
 }
 module.exports = registerUser;

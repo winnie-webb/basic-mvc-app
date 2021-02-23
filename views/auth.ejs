@@ -8,8 +8,10 @@
     
     <link rel="stylesheet" href="./css/signin.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<% if (formType === "signup") { %>
+    <script defer src="./js/registerUser.js"></script>
+    <% } %>
     <title>Excercise Tracker Signin Page</title>
 </head>
 <body>
@@ -33,16 +35,21 @@
 
             <h3 class="signin-split">OR</h3>
 
-        <form action="<%= formAction %>"class="form">
+        <form id="form" action="<%= formAction %>"class="form">
 <% if (formType === "signup") {%>
             <div class="form__input-wrapper">
-                <input required id="email" name="email" type="text" class="form__input"/>
+                <input required id="email" name="email" type="email" class="form__input"/>
                 <label for="email">Email</label>
             </div>
 <% } %>
             <div class="form__input-wrapper">
                 <input required id="username" name="username" type="text" class="form__input"/>
-                <label for="username">Username</label>
+                <% if (formType === "signup") { %>
+                    <label for="username">Username</label> 
+                    <% } %>
+                <% if (formType === "signin") { %>
+                    <label for="username">Username or Email</label> 
+                    <% } %>
             </div>
 
             <div class="form__input-wrapper">
