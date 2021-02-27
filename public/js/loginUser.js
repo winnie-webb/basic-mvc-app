@@ -1,5 +1,5 @@
 const form = document.getElementById("form");
-const errorMessage = document.querySelector(".login-error");
+const errorMessage = document.querySelector(".errorMessage");
 const forgotPasswordLink = document.querySelector(".forgot-password");
 const username = document.getElementById("username");
 const password = document.getElementById("password");

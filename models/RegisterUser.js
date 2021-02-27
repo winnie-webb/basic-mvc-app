@@ -1,11 +1,25 @@
-const User = require("./Users");
+const UserModel = require("./Users");
 const bcrypt = require("bcrypt");
 async function registerUser(req, res, userData) {
   try {
     const { password, email, username } = userData;
+
+    const doesUsernameAlreadyExist = await UserModel.findOne({
+      username: username,
+    });
+    const doesEmailAlreadyExists = await UserModel.findOne({ email: email });
+
+    if (doesEmailAlreadyExists !== null) {
+      return res.status(409).json({ message: "Email already exists" });
+    }
+
+    if (doesUsernameAlreadyExist !== null) {
+      return res.status(409).json({ message: "Username already exists" });
+    }
+
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    const user = new User({
+    const user = new UserModel({
       email: email,
       username: username,
       password: hashedPassword,

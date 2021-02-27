@@ -2,7 +2,7 @@ const form = document.getElementById("form");
 const email = document.getElementById("email");
 const username = document.getElementById("username");
 const password = document.getElementById("password");
-
+const errorMessage = document.querySelector(".errorMessage");
 form.action = "";
 
 form.addEventListener("submit", registerUser);
@@ -29,6 +29,11 @@ function registerUser(e) {
         if (res.status === 201) {
           window.location.href = "/signin";
         }
+        return res.json();
+      })
+      .then((res) => {
+        const { message } = res;
+        errorMessage.textContent = message;
       })
 
       .catch((err) => {
