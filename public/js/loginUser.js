@@ -1,23 +1,23 @@
 const form = document.getElementById("form");
-const email = document.getElementById("email");
+const errorMessage = document.querySelector(".login-error");
+const forgotPasswordLink = document.querySelector(".forgot-password");
 const username = document.getElementById("username");
 const password = document.getElementById("password");
 
 form.action = "";
 
-form.addEventListener("submit", registerUser);
+form.addEventListener("submit", loginUser);
 
-function registerUser(e) {
+function loginUser(e) {
   e.preventDefault();
 
   const userData = {
-    email: email.value,
     username: username.value,
     password: password.value,
   };
 
   const sendFormData = () => {
-    fetch("/register", {
+    fetch("/signin", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -25,10 +25,17 @@ function registerUser(e) {
       body: JSON.stringify(userData),
     })
       .then((res) => {
-        console.log(res);
         if (res.status === 201) {
-          window.location.href = "/signin";
+          window.location.href = "/";
         }
+        return res.json();
+      })
+      .then((res) => {
+        const { success, message } = res;
+        if (success) return;
+
+        errorMessage.textContent = message;
+        forgotPasswordLink.textContent = "Forgot password?";
       })
 
       .catch((err) => {

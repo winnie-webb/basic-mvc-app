@@ -1,4 +1,5 @@
 const express = require("express");
+const session = require("express-session");
 const app = express();
 const PORT = process.env.PORT || 3000;
 
@@ -8,6 +9,21 @@ ConnectToDb();
 const publicDirPath = "./public";
 const viewsDirPath = "./views";
 
+const { SESSION_SECRET, SESSION_NAME, NODE__ENV } = process.env;
+const isInProduction = NODE__ENV === "production";
+
+app.use(
+  session({
+    name: SESSION_NAME,
+    secret: SESSION_SECRET,
+    saveUninitialized: false,
+    resave: false,
+    cookie: {
+      maxAge: 1000 * 60 * 60 * 2,
+      secure: isInProduction,
+    },
+  })
+);
 app.use(express.static(publicDirPath));
 app.use(express.json());
 
