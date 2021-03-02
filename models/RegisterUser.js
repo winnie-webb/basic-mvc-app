@@ -28,7 +28,7 @@ async function registerUser(req, res, userData) {
     await user.save();
     res.status(201).send();
   } catch (err) {
-    res.status(500).json(err.message);
+    res.status(500).send(err.message);
   }
 }
 module.exports = registerUser;

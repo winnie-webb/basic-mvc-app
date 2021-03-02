@@ -1,5 +1,5 @@
 function checkIfUserIsAuth(req, res, next) {
-  if (req.session.userId) return next();
+  if (req.isAuthenticated()) return next();
   res.redirect("/signin");
 }
 module.exports = checkIfUserIsAuth;

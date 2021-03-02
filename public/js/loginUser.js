@@ -25,9 +25,9 @@ function loginUser(e) {
       body: JSON.stringify(userData),
     })
       .then((res) => {
-        if (res.status === 201) {
-          window.location.href = "/";
-        }
+        // if (res.status === 201) {
+        window.location.href = "/";
+        // }
         return res.json();
       })
       .then((res) => {
