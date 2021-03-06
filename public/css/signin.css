@@ -104,8 +104,8 @@ svg {
   border-radius: 0.5rem;
 }
 
-.form__input:focus ~ label,
-.form__input:valid ~ label {
+.form__input:not(:placeholder-shown) ~ label,
+.form__input:focus ~ label {
   transform: translateY(-4rem);
   color: rgb(56, 56, 56);
   font-size: 1.6rem;

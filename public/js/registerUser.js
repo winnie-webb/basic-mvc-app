@@ -29,6 +29,10 @@ function registerUser(e) {
         if (res.status === 201) {
           window.location.href = "/signin";
         }
+        if (res.status === 400) {
+          errorMessage.textContent = "Not an email. Please try again";
+          return;
+        }
         return res.json();
       })
       .then((res) => {
