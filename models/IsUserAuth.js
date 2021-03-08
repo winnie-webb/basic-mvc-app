@@ -1,6 +1,6 @@
 function redirectToSigninIfNotAuth(req, res, next) {
   if (req.isAuthenticated()) return next();
-  res.redirect("/auth/signin");
+  return res.redirect("/auth/signin");
 }
 function redirectToHomeIfAlreadyAuth(req, res, next) {
   if (req.isAuthenticated()) return res.redirect("/");

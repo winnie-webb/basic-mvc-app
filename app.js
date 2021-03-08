@@ -2,8 +2,8 @@ if (process.env.NODE_ENV !== "production") require("dotenv").config();
 const express = require("express");
 const session = require("express-session");
 const {
-  redirectToSigninIfNotAuth,
   redirectToHomeIfAlreadyAuth,
+  redirectToSigninIfNotAuth,
 } = require("./models/IsUserAuth");
 
 const app = express();
@@ -38,7 +38,7 @@ app.set("view engine", "ejs");
 app.set("views", viewsDirPath);
 
 // Initialize Routes
-app.get("/", redirectToHomeIfAlreadyAuth, (req, res) => {
+app.get("/", redirectToSigninIfNotAuth, (req, res) => {
   res.render("index", { greeting: "Hello there" });
 });
 

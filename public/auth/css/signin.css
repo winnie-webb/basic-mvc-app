@@ -37,6 +37,13 @@ svg {
 
 /* Start Signin Options Styling */
 
+.google-auth-link,
+.facebook-auth-link {
+  text-decoration: none;
+}
+.google-auth-link {
+  color: rgb(0, 0, 0);
+}
 .signin-options-wrapper {
   padding: 1rem;
 }
@@ -60,7 +67,7 @@ svg {
 }
 .signin-options__content {
   font-size: 1.3rem;
-  font-weight: 300;
+  font-weight: 400;
   text-transform: capitalize;
 }
 .signin-options__icon {

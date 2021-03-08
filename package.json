@@ -12,7 +12,6 @@
     "bcrypt": "^5.0.0",
     "ejs": "^3.1.6",
     "express": "^4.17.1",
-    "express-flash": "^0.0.2",
     "express-session": "^1.17.1",
     "googleapis": "^67.0.0",
     "jsonwebtoken": "^8.5.1",
@@ -20,6 +19,7 @@
     "nanoid": "^3.1.20",
     "node-fetch": "^2.6.1",
     "passport": "^0.4.1",
+    "passport-google-oauth2": "^0.2.0",
     "passport-local": "^1.0.0",
     "validator": "^13.5.2"
   },

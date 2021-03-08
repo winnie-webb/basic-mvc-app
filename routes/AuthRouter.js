@@ -39,4 +39,17 @@ router.post("/register", (req, res) => {
   const userData = req.body;
   registerUser(req, res, userData);
 });
+
+router.get(
+  "/google",
+  passport.authenticate("google", { scope: ["email", "profile"] })
+);
+
+router.get(
+  "/google/callback",
+  passport.authenticate("google", {
+    successRedirect: "/",
+    failureRedirect: "/auth/register",
+  })
+);
 module.exports = router;

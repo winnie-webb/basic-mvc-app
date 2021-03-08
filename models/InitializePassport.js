@@ -1,10 +1,12 @@
+if (process.env.NODE_ENV !== "production") require("dotenv").config();
+
 const UserModel = require("./Users");
 const bcrypt = require("bcrypt");
 const LocalStrategy = require("passport-local").Strategy;
-const fetch = require("node-fetch");
+const GoogleStrategy = require("passport-google-oauth2").Strategy;
 
 function initialize(passport) {
-  const authenticateUser = async (username, password, done) => {
+  const authenticateUserLocal = async (username, password, done) => {
     try {
       const user = await UserModel.findOne({ username: username });
 
@@ -22,16 +24,44 @@ function initialize(passport) {
     }
   };
 
-  passport.use(new LocalStrategy(authenticateUser));
+  const authenticateUserGoogle = async (
+    request,
+    accessToken,
+    refreshToken,
+    profile,
+    done
+  ) => {
+    try {
+      const user = profile;
+      done(null, user);
+    } catch (err) {
+      done(err);
+      console.log(err);
+    }
+  };
 
+  passport.use(new LocalStrategy(authenticateUserLocal));
+
+  const { GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET } = process.env;
+  passport.use(
+    new GoogleStrategy(
+      {
+        clientID: GOOGLE_CLIENT_ID,
+        clientSecret: GOOGLE_CLIENT_SECRET,
+        callbackURL: "/auth/google/callback",
+        passReqToCallback: true,
+      },
+      authenticateUserGoogle
+    )
+  );
   passport.serializeUser(function (user, done) {
     done(null, user.id);
   });
 
-  passport.deserializeUser(function (id, done) {
-    UserModel.findById(id, function (err, user) {
-      done(err, user);
-    });
+  passport.deserializeUser(function (user, done) {
+    // UserModel.findById(id, function (err, user) {
+    done(null, user);
+    // });
   });
 }
 module.exports = initialize;
