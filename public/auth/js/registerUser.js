@@ -17,7 +17,7 @@ function registerUser(e) {
   };
 
   const sendFormData = () => {
-    fetch("/register", {
+    fetch("/auth/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -1,5 +1,9 @@
-function checkIfUserIsAuth(req, res, next) {
+function redirectToSigninIfNotAuth(req, res, next) {
   if (req.isAuthenticated()) return next();
-  res.redirect("/signin");
+  res.redirect("/auth/signin");
 }
-module.exports = checkIfUserIsAuth;
+function redirectToHomeIfAlreadyAuth(req, res, next) {
+  if (req.isAuthenticated()) return res.redirect("/");
+  next();
+}
+module.exports = { redirectToHomeIfAlreadyAuth, redirectToSigninIfNotAuth };

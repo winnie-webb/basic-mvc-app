@@ -17,7 +17,7 @@ function loginUser(e) {
   };
 
   const sendFormData = () => {
-    fetch("/signin", {
+    fetch("/auth/signin", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

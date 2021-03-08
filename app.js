@@ -1,6 +1,10 @@
 if (process.env.NODE_ENV !== "production") require("dotenv").config();
 const express = require("express");
 const session = require("express-session");
+const {
+  redirectToSigninIfNotAuth,
+  redirectToHomeIfAlreadyAuth,
+} = require("./models/IsUserAuth");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -34,7 +38,11 @@ app.set("view engine", "ejs");
 app.set("views", viewsDirPath);
 
 // Initialize Routes
+app.get("/", redirectToHomeIfAlreadyAuth, (req, res) => {
+  res.render("index", { greeting: "Hello there" });
+});
+
 const ExcerciseRouter = require("./routes/ExcerciseRouter");
 const AuthRouter = require("./routes/AuthRouter");
-app.use("/", AuthRouter);
+app.use("/auth", AuthRouter);
 app.listen(PORT, () => console.log("Server has started"));

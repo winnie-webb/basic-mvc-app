@@ -1,18 +1,14 @@
 const router = require("express").Router();
 const passport = require("passport");
 const registerUser = require("../models/RegisterUser");
-const checkIfUserIsAuth = require("../models/IsUserAuth");
 const InitializePassport = require("../models/InitializePassport");
+const { redirectToHomeIfAlreadyAuth } = require("../models/IsUserAuth");
 
 InitializePassport(passport);
 router.use(passport.initialize());
 router.use(passport.session());
 
-router.get("/", checkIfUserIsAuth, (req, res) => {
-  res.render("index", { greeting: "Hello there" });
-});
-
-router.get("/signin", (req, res) => {
+router.get("/signin", redirectToHomeIfAlreadyAuth, (req, res) => {
   res.render("auth", { formType: "signin", formAction: "/signin" });
 });
 
@@ -26,7 +22,7 @@ router.post("/signin", (req, res, next) => {
         .status(404)
         .json({ success: false, message: "Incorrect username or password" });
     }
-    req.logIn(user, function (err) {
+    req.logIn(user, (err) => {
       if (err) {
         return res.status(502).json({ success: false, message: err.message });
       }
