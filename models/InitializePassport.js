@@ -1,33 +1,24 @@
 const UserModel = require("./Users");
 const bcrypt = require("bcrypt");
 const LocalStrategy = require("passport-local").Strategy;
+const fetch = require("node-fetch");
 
 function initialize(passport) {
   const authenticateUser = async (username, password, done) => {
     try {
       const user = await UserModel.findOne({ username: username });
+
       if (user === null) {
-        done(null);
-        // return res
-        //   .status(404)
-        //   .json({ success: false, message: "User not found" });
+        return done(null, false);
       }
 
       const isPasswordAMatch = await bcrypt.compare(password, user.password);
 
-      if (isPasswordAMatch) {
-        done(null, user);
-        // return res.status(201).json({ success: true, message: "User found" });
-      } else {
-        done(null, false);
-      }
-
-      // res.status(404).json({
-      //   success: false,
-      //   message: "Incorrect password. Please try again",
-      // });
+      if (isPasswordAMatch) return done(null, user);
+      else return done(null, false);
     } catch (err) {
       done(err);
+      console.log(err);
     }
   };
 
