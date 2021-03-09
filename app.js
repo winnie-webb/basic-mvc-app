@@ -1,6 +1,7 @@
 if (process.env.NODE_ENV !== "production") require("dotenv").config();
 const express = require("express");
 const session = require("express-session");
+const MongoStore = require("connect-mongo").default;
 const passport = require("passport");
 const { redirectToSigninIfNotAuth } = require("./models/IsUserAuth");
 
@@ -13,7 +14,7 @@ ConnectToDb();
 const publicDirPath = "./public";
 const viewsDirPath = "./views";
 
-const { SESSION_SECRET, SESSION_NAME, NODE__ENV } = process.env;
+const { SESSION_SECRET, SESSION_NAME, NODE__ENV, DB_URI } = process.env;
 const isInProduction = NODE__ENV === "production";
 
 app.use(
@@ -26,6 +27,9 @@ app.use(
       maxAge: 1000 * 60 * 60 * 2,
       secure: isInProduction,
     },
+    store: MongoStore.create({
+      mongoUrl: DB_URI,
+    }),
   })
 );
 

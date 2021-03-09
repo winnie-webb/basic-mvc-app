@@ -50,4 +50,5 @@ router.get(
     failureRedirect: "/auth/register",
   })
 );
+
 module.exports = router;
