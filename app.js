@@ -1,10 +1,8 @@
 if (process.env.NODE_ENV !== "production") require("dotenv").config();
 const express = require("express");
 const session = require("express-session");
-const {
-  redirectToHomeIfAlreadyAuth,
-  redirectToSigninIfNotAuth,
-} = require("./models/IsUserAuth");
+const passport = require("passport");
+const { redirectToSigninIfNotAuth } = require("./models/IsUserAuth");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -30,6 +28,9 @@ app.use(
     },
   })
 );
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use(express.static(publicDirPath));
 app.use(express.json());

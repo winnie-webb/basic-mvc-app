@@ -5,8 +5,6 @@ const InitializePassport = require("../models/InitializePassport");
 const { redirectToHomeIfAlreadyAuth } = require("../models/IsUserAuth");
 
 InitializePassport(passport);
-router.use(passport.initialize());
-router.use(passport.session());
 
 router.get("/signin", redirectToHomeIfAlreadyAuth, (req, res) => {
   res.render("auth", { formType: "signin", formAction: "/signin" });
@@ -31,7 +29,7 @@ router.post("/signin", (req, res, next) => {
   })(req, res, next);
 });
 
-router.get("/register", (req, res) => {
+router.get("/register", redirectToHomeIfAlreadyAuth, (req, res) => {
   res.render("auth", { formType: "signup", formAction: "/signin" });
 });
 

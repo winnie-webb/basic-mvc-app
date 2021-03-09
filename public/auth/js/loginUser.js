@@ -28,7 +28,6 @@ function loginUser(e) {
         if (res.status === 200) {
           window.location.href = "/";
         }
-        console.log(res);
         return res.json();
       })
       .then((res) => {
