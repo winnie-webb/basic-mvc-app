@@ -18,9 +18,14 @@ const UserSchema = new mongoose.Schema({
     required: true,
   },
 
+  provider: {
+    type: String,
+    enum: ["local", "google", "facebook"],
+  },
+
   password: {
     type: String,
-    required: true,
+    required: () => this.provider === "local",
   },
 });
 

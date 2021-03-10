@@ -51,4 +51,9 @@ router.get(
   })
 );
 
+router.delete("/signout", (req, res) => {
+  req.logOut();
+  res.redirect("/auth/signin");
+});
+
 module.exports = router;

@@ -23,6 +23,7 @@ async function registerUser(req, res, userData) {
       email: email,
       username: username,
       password: hashedPassword,
+      provider: "local",
     });
 
     await user.save();

@@ -8,5 +8,9 @@
 </head>
 <body>
     <h1><%= greeting %></h1>
+    <form method="POST" action="/auth/signout?_method=DELETE">
+        <button type="submit">Logout</button>
+    </form>
+      
 </body>
 </html>

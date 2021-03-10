@@ -3,6 +3,8 @@ const express = require("express");
 const session = require("express-session");
 const MongoStore = require("connect-mongo").default;
 const passport = require("passport");
+const methodOverride = require("method-override");
+
 const { redirectToSigninIfNotAuth } = require("./models/IsUserAuth");
 
 const app = express();
@@ -32,7 +34,7 @@ app.use(
     }),
   })
 );
-
+app.use(methodOverride("_method"));
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -44,7 +46,7 @@ app.set("views", viewsDirPath);
 
 // Initialize Routes
 app.get("/", redirectToSigninIfNotAuth, (req, res) => {
-  res.render("index", { greeting: "Hello there" });
+  res.render("index", { greeting: "Hello" });
 });
 
 const ExcerciseRouter = require("./routes/ExcerciseRouter");
