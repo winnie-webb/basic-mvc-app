@@ -4,7 +4,7 @@ const session = require("express-session");
 const MongoStore = require("connect-mongo").default;
 const passport = require("passport");
 const methodOverride = require("method-override");
-
+const UserModel = require("./models/Users");
 const { redirectToSigninIfNotAuth } = require("./models/IsUserAuth");
 
 const app = express();
@@ -45,8 +45,11 @@ app.set("view engine", "ejs");
 app.set("views", viewsDirPath);
 
 // Initialize Routes
-app.get("/", redirectToSigninIfNotAuth, (req, res) => {
-  res.render("index", { greeting: "Hello" });
+app.get("/", redirectToSigninIfNotAuth, async (req, res) => {
+  const id = req.user;
+  const user = await UserModel.findById({ _id: id });
+  const isAuth = id ? true : false;
+  res.render("index", { greeting: `Hi ${user.username}`, auth: isAuth });
 });
 
 const ExcerciseRouter = require("./routes/ExcerciseRouter");

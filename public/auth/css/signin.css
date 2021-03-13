@@ -19,7 +19,9 @@ svg {
   bottom: 0;
   z-index: -1;
 }
-
+svg path {
+  fill: rgb(15, 29, 218);
+}
 .signin-modal {
   margin: 5rem auto;
   width: 35rem;

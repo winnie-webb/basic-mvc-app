@@ -5,12 +5,53 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Excercise Tracker App</title>
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,500;0,700;1,400&display=swap" rel="stylesheet">
+    <script defer src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script defer src="./js/initAos.js"></script>
 </head>
 <body>
-    <h1><%= greeting %></h1>
-    <form method="POST" action="/auth/signout?_method=DELETE">
-        <button type="submit">Logout</button>
-    </form>
-      
+    <header class="header">
+        <a href="/"><h1 class="header__logo">etracky</h1></a>
+        
+        <% if (!auth) { %>
+        <div class="btn header__btn header__login-btn">
+            <a href="/auth/signin">Login</a>
+        </div>
+
+        <div class="btn header__btn header__signup-btn">
+            <a href="/auth/register">Signup</a>
+        </div> 
+        <% } %>
+        <% if (auth) { %>
+            <div class="btn header__btn header__login-btn">
+                <%= greeting %>
+            </div>
+
+            <a href="/dashboard">
+                <div style="color: rgb(255, 255, 255);" class="btn header__btn header__signup-btn">
+                 Go to dashboard
+                </div> 
+            </a>
+        <% } %>
+    </header>
+
+    <section class="section-hero">
+        <div class="hero-main">
+        <h2 data-aos="fade-right" class="hero-main__heading">Fitness starts with organization</h2>
+        <p data-aos="fade-right" class="hero-main__content">Take the timeout to organize your workout sessions so that you can be as effective as possible. We will the whole process as simple as possible. </p>
+        <a href="/auth/register">
+            <div data-aos="fade-right" class="btn get_started-btn">
+                Get Started
+            </div>
+        </a>
+        </div>
+        <div data-aos="fade-left" class="hero-svg-wrapper">
+            <img class="hero-svg" src="./svg/hero_svg.svg"/>
+        </div>
+    </section>
+
 </body>
 </html>
