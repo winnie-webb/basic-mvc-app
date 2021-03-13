@@ -27,7 +27,7 @@ function registerUser(e) {
       .then((res) => {
         console.log(res);
         if (res.status === 201) {
-          window.location.href = "/signin";
+          window.location.href = "/auth/signin";
         }
         if (res.status === 400) {
           errorMessage.textContent = "Not an email. Please try again";
