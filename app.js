@@ -10,8 +10,8 @@ const { redirectToSigninIfNotAuth } = require("./models/IsUserAuth");
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// const ConnectToDb = require("./models/ConnectToDb");
-// ConnectToDb();
+const ConnectToDb = require("./models/ConnectToDb");
+ConnectToDb();
 
 const publicDirPath = "./public";
 const viewsDirPath = "./views";
@@ -60,6 +60,6 @@ app.get("/", async (req, res) => {
 });
 
 const ExcerciseRouter = require("./routes/ExcerciseRouter");
-// const AuthRouter = require("./routes/AuthRouter");
-// app.use("/auth", AuthRouter);
+const AuthRouter = require("./routes/AuthRouter");
+app.use("/auth", AuthRouter);
 app.listen(PORT, () => console.log("Server has started"));

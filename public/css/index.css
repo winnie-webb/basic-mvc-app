@@ -141,8 +141,39 @@ a {
   }
 }
 
+.section-reviews {
+  margin-top: 10rem;
+  height: 60vh;
+}
+.reviews {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
 .review-heading {
   font-size: 5rem;
   font-weight: 300;
   text-align: center;
+}
+.review {
+  background-color: rgb(249, 249, 249);
+  margin: 3rem;
+  border-radius: 0.5rem;
+  padding: 2rem;
+}
+.review__stars {
+  color: gold;
+  display: block;
+  margin: 1rem;
+}
+.review__quotation {
+  color: #6d8af3;
+}
+#review-1 {
+  width: 25rem;
+}
+#review-2 {
+  width: 25rem;
+}
+.review-5 {
+  justify-self: flex-end;
 }
