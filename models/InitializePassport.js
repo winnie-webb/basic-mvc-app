@@ -4,7 +4,6 @@ const UserModel = require("./Users");
 const bcrypt = require("bcrypt");
 const LocalStrategy = require("passport-local").Strategy;
 const GoogleStrategy = require("passport-google-oauth2").Strategy;
-const User = require("./Users");
 
 function initialize(passport) {
   const authenticateUserLocal = async (username, password, done) => {

@@ -66,6 +66,7 @@ body {
 }
 .hero-main__content {
   width: 43rem;
+  font-size: 1.6rem;
 }
 .get_started-btn {
   width: 30rem;
@@ -88,4 +89,60 @@ body {
 a {
   text-decoration: none;
   color: rgb(255, 255, 255);
+}
+/* Section Features */
+.section-features {
+  margin-top: 10rem;
+}
+.feature {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 3rem 0;
+  height: 50vh;
+}
+.feature__heading {
+  font-size: 5.5rem;
+  margin-bottom: 2rem;
+  text-align: left;
+}
+.feature__content {
+  font-size: 2rem;
+  width: 50rem;
+}
+.feature__main {
+  margin-top: 3rem;
+}
+
+.feature-def .feature__image {
+  width: 50rem;
+  height: 30rem;
+}
+.feature1 h2 {
+  width: auto;
+}
+.feature1 .feature__image-wrapper {
+  text-align: left;
+  margin: 0 3rem;
+  background: transparent;
+}
+
+.feature1 .feature__image {
+  width: 30rem;
+  animation: rotate-right 2s 1;
+  transform: rotate(90deg);
+}
+@keyframes rotate-right {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(90deg);
+  }
+}
+
+.review-heading {
+  font-size: 5rem;
+  font-weight: 300;
+  text-align: center;
 }

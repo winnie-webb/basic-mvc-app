@@ -1,57 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Excercise Tracker App</title>
-    <link rel="stylesheet" href="./css/index.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,500;0,700;1,400&display=swap" rel="stylesheet">
-    <script defer src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script defer src="./js/initAos.js"></script>
-</head>
-<body>
+    <link rel="stylesheet" href="./css/index.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,500;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
     <header class="header">
-        <a href="/"><h1 class="header__logo">etracky</h1></a>
-        
-        <% if (!auth) { %>
-        <div class="btn header__btn header__login-btn">
-            <a href="/auth/signin">Login</a>
+      <a href="/"><h1 class="header__logo">etracky</h1></a>
+
+      <% if (!auth) { %>
+      <div class="btn header__btn header__login-btn">
+        <a href="/auth/signin">Login</a>
+      </div>
+
+      <div class="btn header__btn header__signup-btn">
+        <a href="/auth/register">Signup</a>
+      </div>
+      <% } %> <% if (auth) { %>
+      <div class="btn header__btn header__login-btn"><%= greeting %></div>
+
+      <a href="/dashboard">
+        <div
+          style="color: rgb(255, 255, 255)"
+          class="btn header__btn header__signup-btn"
+        >
+          Go to dashboard
         </div>
-
-        <div class="btn header__btn header__signup-btn">
-            <a href="/auth/register">Signup</a>
-        </div> 
-        <% } %>
-        <% if (auth) { %>
-            <div class="btn header__btn header__login-btn">
-                <%= greeting %>
-            </div>
-
-            <a href="/dashboard">
-                <div style="color: rgb(255, 255, 255);" class="btn header__btn header__signup-btn">
-                 Go to dashboard
-                </div> 
-            </a>
-        <% } %>
+      </a>
+      <% } %>
     </header>
 
     <section class="section-hero">
-        <div class="hero-main">
-        <h2 data-aos="fade-right" class="hero-main__heading">Fitness starts with organization</h2>
-        <p data-aos="fade-right" class="hero-main__content">Take the timeout to organize your workout sessions so that you can be as effective as possible. We will the whole process as simple as possible. </p>
+      <aside class="hero-main">
+        <h2 class="hero-main__heading">Fitness starts with organization</h2>
+
+        <p class="hero-main__content">
+          Take the timeout to organize your workout sessions so that you can be
+          as effective as possible. We will the whole process as simple as
+          possible.
+        </p>
+
         <a href="/auth/register">
-            <div data-aos="fade-right" class="btn get_started-btn">
-                Get Started
-            </div>
+          <div class="btn get_started-btn">Get Started</div>
         </a>
-        </div>
-        <div data-aos="fade-left" class="hero-svg-wrapper">
-            <img class="hero-svg" src="./svg/hero_svg.svg"/>
-        </div>
+      </aside>
+
+      <aside class="hero-svg-wrapper">
+        <img
+          class="hero-svg"
+          alt="Undraw Exercise Svg"
+          src="./svg/hero_svg.svg"
+        />
+      </aside>
     </section>
 
-</body>
+    <section class="section-features">
+      <aside class="feature feature1">
+        <div class="feature__image-wrapper">
+          <img
+            class="feature__image"
+            alt="iphone mockup graph"
+            src="./svg/iphone-mockup2.png"
+          />
+        </div>
+
+        <div class="feature__main">
+          <h2 class="feature__heading">What we’re about</h2>
+          <p class="feature__content">
+            Etracky is an online exercise tracker where structuring your
+            workouts has never been easier. We do extensive research on the best
+            features and turn them into this concise exercise tracking tool.
+          </p>
+        </div>
+      </aside>
+
+      <aside class="feature-def feature feature2">
+        <div class="feature__main">
+          <h2 class="feature__heading">Track Your Progress</h2>
+          <p class="feature__content">
+            Utilize our simple yet practical dashboard and make your life
+            easier. See your progress with beautifully designed graphs and never
+            struggle again to complete exercise routine.
+          </p>
+        </div>
+
+        <div class="feature__image-wrapper">
+          <img
+            class="feature__image"
+            alt="iphone mockup graph"
+            src="./svg/track-progress_svg.svg"
+          />
+        </div>
+      </aside>
+
+      <aside class="feature feature-def feature3">
+        <div class="feature__image-wrapper">
+          <img
+            class="feature__image"
+            alt="iphone mockup graph"
+            src="./svg/navigator_svg.svg"
+          />
+        </div>
+
+        <div class="feature__main">
+          <h2 class="feature__heading">Easy To Navigate</h2>
+          <p class="feature__content">
+            We have combined rich features with a straightforward interface.
+            Register now and relish in our platform to your heart’s content.
+            Give it a try. We know you’ll love it. Etracky is here for you.
+          </p>
+        </div>
+      </aside>
+    </section>
+    <section class="section-reviews">
+      <h2 class="review-heading">What people are saying about us</h2>
+      <span class="review"></span>
+      <span class="review"></span>
+      <span class="review"></span>
+      <span class="review"></span>
+      <span class="review"></span>
+      <span class="review"></span>
+      <span class="review"></span>
+    </section>
+  </body>
 </html>
