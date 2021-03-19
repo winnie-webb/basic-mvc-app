@@ -102,7 +102,7 @@ a {
   height: 50vh;
 }
 .feature__heading {
-  font-size: 5.5rem;
+  font-size: 4.5rem;
   margin-bottom: 2rem;
   text-align: left;
 }
@@ -129,16 +129,7 @@ a {
 
 .feature1 .feature__image {
   width: 30rem;
-  animation: rotate-right 2s 1;
   transform: rotate(90deg);
-}
-@keyframes rotate-right {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(90deg);
-  }
 }
 
 .section-reviews {
@@ -176,4 +167,51 @@ a {
 }
 .review-5 {
   justify-self: flex-end;
+}
+.footer {
+  background-color: #204efa;
+  color: rgb(255, 255, 255);
+  padding: 2rem;
+  text-align: center;
+  margin-top: 5rem;
+}
+/* Fade in animations */
+.fade-right {
+  animation: fade-right 1.2s 1;
+}
+.fade-left {
+  animation: fade-left 1.2s 1;
+}
+.rotate-right {
+  animation: rotate-right 1.2s 1;
+}
+
+@keyframes fade-right {
+  from {
+    opacity: 0;
+    transform: translateX(8rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fade-left {
+  from {
+    opacity: 0;
+    transform: translateX(-5rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes rotate-right {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(90deg);
+  }
 }

@@ -12,6 +12,7 @@
       href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,500;0,700;1,400&display=swap"
       rel="stylesheet"
     />
+    <script src="./js/myCustomAnimation.js" defer></script>
   </head>
   <body>
     <header class="header">
@@ -41,20 +42,24 @@
 
     <section class="section-hero">
       <aside class="hero-main">
-        <h2 class="hero-main__heading">Fitness starts with organization</h2>
+        <h2 data-animate="fade-left" class="hero-main__heading">
+          Fitness starts with organization
+        </h2>
 
-        <p class="hero-main__content">
+        <p data-animate="fade-left" class="hero-main__content">
           Take the timeout to organize your workout sessions so that you can be
           as effective as possible. We will the whole process as simple as
           possible.
         </p>
 
         <a href="/auth/register">
-          <div class="btn get_started-btn">Get Started</div>
+          <div data-animate="fade-left" class="btn get_started-btn">
+            Get Started
+          </div>
         </a>
       </aside>
 
-      <aside class="hero-svg-wrapper">
+      <aside data-animate="fade-right" class="hero-svg-wrapper">
         <img
           class="hero-svg"
           alt="Undraw Exercise Svg"
@@ -67,15 +72,18 @@
       <aside class="feature feature1">
         <div class="feature__image-wrapper">
           <img
+            data-animate="rotate-right"
             class="feature__image"
             alt="iphone mockup graph"
-            src="./svg/iphone-mockup2.png"
+            src="./img/iphone-mockup2.png"
           />
         </div>
 
         <div class="feature__main">
-          <h2 class="feature__heading">What we’re about</h2>
-          <p class="feature__content">
+          <h2 data-animate="fade-right" class="feature__heading">
+            What we’re about
+          </h2>
+          <p data-animate="fade-right" class="feature__content">
             Etracky is an online exercise tracker where structuring your
             workouts has never been easier. We do extensive research on the best
             features and turn them into this concise exercise tracking tool.
@@ -85,15 +93,17 @@
 
       <aside class="feature-def feature feature2">
         <div class="feature__main">
-          <h2 class="feature__heading">Track Your Progress</h2>
-          <p class="feature__content">
+          <h2 data-animate="fade-left" class="feature__heading">
+            Track Your Progress
+          </h2>
+          <p data-animate="fade-left" class="feature__content">
             Utilize our simple yet practical dashboard and make your life
             easier. See your progress with beautifully designed graphs and never
             struggle again to complete exercise routine.
           </p>
         </div>
 
-        <div class="feature__image-wrapper">
+        <div data-animate="fade-right" class="feature__image-wrapper">
           <img
             class="feature__image"
             alt="iphone mockup graph"
@@ -103,7 +113,7 @@
       </aside>
 
       <aside class="feature feature-def feature3">
-        <div class="feature__image-wrapper">
+        <div data-animate="fade-left" class="feature__image-wrapper">
           <img
             class="feature__image"
             alt="iphone mockup graph"
@@ -112,8 +122,10 @@
         </div>
 
         <div class="feature__main">
-          <h2 class="feature__heading">Easy To Navigate</h2>
-          <p class="feature__content">
+          <h2 data-animate="fade-right" class="feature__heading">
+            Easy To Navigate
+          </h2>
+          <p data-animate="fade-right" class="feature__content">
             We have combined rich features with a straightforward interface.
             Register now and relish in our platform to your heart’s content.
             Give it a try. We know you’ll love it. Etracky is here for you.
@@ -124,29 +136,29 @@
     <section class="section-reviews">
       <h2 class="review-heading">What people are saying about us</h2>
       <aside class="reviews">
-        <div id="review-1" class="review">
+        <div data-animate="fade-left" id="review-1" class="review">
           <span class="review__stars">★★★★★</span>
           <span class="review__quotation">"</span>
           Best exercise tracker application ever
         </div>
-        <div id="review-2" class="review">
+        <div data-animate="fade-right" id="review-2" class="review">
           <span class="review__stars">★★★★★</span>
           <span class="review__quotation">"</span>
           Easy, concise, clean just great. I love it
         </div>
-        <div id="review-3" class="review">
+        <div data-animate="fade-left" id="review-3" class="review">
           <span class="review__stars">★★★★★</span>
           <span class="review__quotation">"</span>
           I have tried a lot of online trackers but none of them were as good as
           etracky
         </div>
-        <div id="review-4" class="review">
+        <div data-animate="fade-left" id="review-4" class="review">
           <span class="review__stars">★★★★★</span>
           <span class="review__quotation">"</span>
           I would recommend this to anyone who is having trouble organizing
           their exercises
         </div>
-        <div id="review-5" class="review">
+        <div data-animate="fade-right" id="review-5" class="review">
           <span class="review__stars">★★★★★</span>
           <span class="review__quotation">"</span>
           Five stars ! I was struggling with keeping up with my routine but when
@@ -154,5 +166,11 @@
         </div>
       </aside>
     </section>
+    <aside>
+      <img style="width: 30rem" src="./img/adrienne-beforeafter.jpeg" />
+    </aside>
+    <footer class="footer">
+      <p>All right reserved &copy Copyright 2021</p>
+    </footer>
   </body>
 </html>
