@@ -59,7 +59,7 @@ app.get("/", async (req, res) => {
   res.render("index", { auth: false });
 });
 
-const ExcerciseRouter = require("./routes/ExcerciseRouter");
-const AuthRouter = require("./routes/AuthRouter");
-app.use("/auth", AuthRouter);
-app.listen(PORT, () => console.log("Server has started"));
+// const ExcerciseRouter = require("./routes/ExcerciseRouter");
+// const AuthRouter = require("./routes/AuthRouter");
+// app.use("/auth", AuthRouter);
+app.listen(PORT, () => console.log(`Server has started on port ${PORT}`));

@@ -12,7 +12,7 @@ html {
 
 body {
   font-size: 1.6rem;
-  padding: 5rem;
+  /* padding: 5rem; */
   overflow-x: hidden;
 }
 
@@ -25,7 +25,7 @@ body {
 /* Header Styling */
 .header {
   display: flex;
-  padding: 2rem;
+  padding: 5rem;
   height: 26rem;
 }
 .header__logo {
@@ -57,6 +57,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
+  padding: 5rem;
 }
 .hero-main__heading {
   font-size: 5.5rem;
@@ -83,8 +84,9 @@ body {
 }
 .hero-svg {
   height: 40rem;
-  width: 85%;
+  width: 60rem;
 }
+
 /*  */
 a {
   text-decoration: none;
@@ -127,11 +129,6 @@ a {
   background: transparent;
 }
 
-.feature1 .feature__image {
-  width: 30rem;
-  transform: rotate(90deg);
-}
-
 .section-reviews {
   margin-top: 10rem;
   height: 60vh;
@@ -169,11 +166,36 @@ a {
   justify-self: flex-end;
 }
 .footer {
-  background-color: #204efa;
   color: rgb(255, 255, 255);
-  padding: 2rem;
   text-align: center;
-  margin-top: 5rem;
+  margin-top: 10rem;
+}
+.footer__svgWrapper {
+  position: relative;
+  overflow: hidden;
+  height: 100vh;
+  background-color: #204efa;
+  padding: 0;
+}
+
+.custom-shape-divider-top-1617651001 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.custom-shape-divider-top-1617651001 svg {
+  position: relative;
+  display: block;
+  width: calc(148% + 1.3px);
+  height: 300px;
+}
+
+.custom-shape-divider-top-1617651001 .shape-fill {
+  fill: #ffffff;
 }
 /* Fade in animations */
 .fade-right {
@@ -181,9 +203,6 @@ a {
 }
 .fade-left {
   animation: fade-left 1.2s 1;
-}
-.rotate-right {
-  animation: rotate-right 1.2s 1;
 }
 
 @keyframes fade-right {
@@ -205,13 +224,5 @@ a {
   to {
     opacity: 1;
     transform: translateX(0);
-  }
-}
-@keyframes rotate-right {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(90deg);
   }
 }
