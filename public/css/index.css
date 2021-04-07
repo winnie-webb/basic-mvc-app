@@ -285,9 +285,9 @@ a {
 /*  */
 .section-reviews {
   margin-top: 10rem;
-  height: 60vh;
 }
 .reviews {
+  display: -ms-grid;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
 }
@@ -295,6 +295,7 @@ a {
   font-size: 5rem;
   font-weight: 300;
   text-align: center;
+  white-space: nowrap;
 }
 .review {
   background-color: rgb(249, 249, 249);
@@ -319,6 +320,32 @@ a {
 .review-5 {
   justify-self: flex-end;
 }
+@media (max-width: 930px) {
+  .reviews {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 760px) {
+  .review-heading {
+    font-size: 4rem;
+  }
+}
+
+@media (max-width: 620px) {
+  .review-heading {
+    font-size: 2.5rem;
+  }
+  .reviews {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 390px) {
+  .review-heading {
+    font-size: 1.8rem;
+    font-weight: bold;
+  }
+}
+/*  */
 .footer {
   color: rgb(255, 255, 255);
   text-align: center;
