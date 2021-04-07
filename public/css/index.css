@@ -26,7 +26,7 @@ body {
   display: flex;
   justify-content: space-evenly;
   padding: 5rem;
-  height: 26rem;
+  height: 20rem;
 }
 .header__logo {
   color: rgb(32, 78, 250);
@@ -151,6 +151,7 @@ body {
 }
 .hero-svg {
   width: 68rem;
+  height: fit-content;
 }
 
 @media (max-width: 1175px) {
@@ -267,19 +268,35 @@ a {
   }
 }
 @media (max-width: 950px) {
-  .feature {
-    display: -ms-grid;
-    display: grid;
-    -ms-grid-columns: 1fr;
-    grid-template-columns: 1fr;
-    gap: 4rem;
-    place-items: center;
+  .feature-def {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
   }
-  .feature__image-wrapper {
-    margin-right: 10rem;
+  .feature-def.feature2 {
+    flex-direction: column-reverse;
   }
+
   .feature__main {
     margin: 4rem;
+  }
+}
+
+@media (max-width: 530px) {
+  .feature__content {
+    width: 30rem;
+  }
+  .feature-def .feature__image {
+    width: 30rem;
+  }
+}
+@media (max-width: 320px) {
+  .feature__content {
+    width: 25rem;
+  }
+  .feature2 .feature__image {
+    width: 25rem;
   }
 }
 /*  */
@@ -338,6 +355,10 @@ a {
   .reviews {
     grid-template-columns: 1fr;
   }
+  #review-1,
+  #review-2 {
+    width: auto;
+  }
 }
 @media (max-width: 390px) {
   .review-heading {
@@ -368,7 +389,7 @@ a {
 .footer__contentHeading {
   font-size: 4rem;
   letter-spacing: 0.35rem;
-  min-height: 15rem;
+  height: 15rem;
   white-space: nowrap;
 }
 .footer__socialLinks {
@@ -377,6 +398,7 @@ a {
   width: 70%;
   margin: 0rem auto;
 }
+
 .social-link img {
   width: 5rem;
 }
@@ -400,6 +422,30 @@ a {
 .custom-shape-divider-top-1617651001 .shape-fill {
   fill: #ffffff;
 }
+
+@media (max-width: 830px) {
+  .footer__contentHeading {
+    font-size: 3rem;
+  }
+}
+@media (max-width: 650px) {
+  .footer__contentHeading {
+    font-size: 2rem;
+    height: 10rem;
+  }
+}
+@media (max-width: 480px) {
+  .footer__contentHeading {
+    font-size: 1.5rem;
+    height: 5rem;
+  }
+}
+@media (max-width: 380px) {
+  .footer__contentHeading {
+    font-size: 1rem;
+  }
+}
+/*  */
 /* Fade in animations */
 .fade-right {
   animation: fade-right 1.2s 1;
