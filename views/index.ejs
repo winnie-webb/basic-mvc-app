@@ -19,13 +19,12 @@
       <a href="/"><h1 class="header__logo">etracky</h1></a>
 
       <% if (!auth) { %>
-      <div class="btn header__btn header__login-btn">
-        <a href="/auth/signin">Login</a>
-      </div>
-
-      <div class="btn header__btn header__signup-btn">
-        <a href="/auth/register">Signup</a>
-      </div>
+      <a class="btn header__btn header__login-btn" href="/auth/signin">
+        <div>Login</div>
+      </a>
+      <a class="btn header__btn header__signup-btn" href="/auth/register">
+        Signup
+      </a>
       <% } %> <% if (auth) { %>
       <div class="btn header__btn header__login-btn"><%= greeting %></div>
 
@@ -168,7 +167,7 @@
     </section>
 
     <footer class="footer">
-      <div class="footer__svgWrapper">
+      <section class="footer__svgWrapper">
         <div class="custom-shape-divider-top-1617651001">
           <svg
             data-name="Layer 1"
@@ -182,7 +181,30 @@
             ></path>
           </svg>
         </div>
-      </div>
+      </section>
+
+      <section class="footer__content">
+        <h2 class="footer__contentHeading">
+          Would you like to reach out to us ?
+        </h2>
+        <div class="footer__socialLinks">
+          <a href="https://www.instagram.com/iamwinston15/">
+            <div class="social-link">
+              <img src="./svg/instagram-icon_svg.svg" />
+            </div>
+          </a>
+          <a href="https://www.instagram.com/iamwinston15/">
+            <div class="social-link">
+              <img src="./svg/facebook-icon_svg.svg" />
+            </div>
+          </a>
+          <a href="https://www.instagram.com/iamwinston15/">
+            <div class="social-link">
+              <img src="./svg/twitter-icon_svg.svg" />
+            </div>
+          </a>
+        </div>
+      </section>
     </footer>
   </body>
 </html>

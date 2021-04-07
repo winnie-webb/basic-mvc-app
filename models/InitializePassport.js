@@ -75,14 +75,12 @@ function initialize(passport) {
       authenticateUserGoogle
     )
   );
-  passport.serializeUser(function (user, done) {
+  passport.serializeUser((user, done) => {
     done(null, user.id);
   });
 
-  passport.deserializeUser(function (user, done) {
-    // UserModel.findById(id, function (err, user) {
+  passport.deserializeUser((user, done) => {
     done(null, user);
-    // });
   });
 }
 module.exports = initialize;

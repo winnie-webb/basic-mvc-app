@@ -1,89 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <link rel="stylesheet" href="./css/signin.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/signin.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
     <% if (formType === "signin") { %>
-        <script defer src="./js/loginUser.js"></script>
-        <% } %>
-    <% if (formType === "signup") { %>
-        <script defer src="./js/registerUser.js"></script>
-        <% } %>    
+    <script defer src="./js/loginUser.js"></script>
+    <% } %> <% if (formType === "signup") { %>
+    <script defer src="./js/registerUser.js"></script>
+    <% } %>
     <title>Excercise Tracker Signin Page</title>
-</head>
-<body>
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#037fd1" fill-opacity="1" d="M0,96L34.3,133.3C68.6,171,137,245,206,240C274.3,235,343,149,411,149.3C480,149,549,235,617,245.3C685.7,256,754,192,823,144C891.4,96,960,64,1029,90.7C1097.1,117,1166,203,1234,218.7C1302.9,235,1371,181,1406,154.7L1440,128L1440,320L1405.7,320C1371.4,320,1303,320,1234,320C1165.7,320,1097,320,1029,320C960,320,891,320,823,320C754.3,320,686,320,617,320C548.6,320,480,320,411,320C342.9,320,274,320,206,320C137.1,320,69,320,34,320L0,320Z"></path></svg>    <section class="signin-modal">
+  </head>
+  <body>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+      <path
+        fill="#037fd1"
+        fill-opacity="1"
+        d="M0,96L34.3,133.3C68.6,171,137,245,206,240C274.3,235,343,149,411,149.3C480,149,549,235,617,245.3C685.7,256,754,192,823,144C891.4,96,960,64,1029,90.7C1097.1,117,1166,203,1234,218.7C1302.9,235,1371,181,1406,154.7L1440,128L1440,320L1405.7,320C1371.4,320,1303,320,1234,320C1165.7,320,1097,320,1029,320C960,320,891,320,823,320C754.3,320,686,320,617,320C548.6,320,480,320,411,320C342.9,320,274,320,206,320C137.1,320,69,320,34,320L0,320Z"
+      ></path>
+    </svg>
+    <section class="signin-modal">
+      <section class="signin-options-wrapper">
+        <h1 class="signin-options-heading"><%= formType %> With</h1>
 
-        <section class="signin-options-wrapper">
+        <a class="google-auth-link" href="/auth/google">
+          <div class="signin-options signin-options-google">
+            <img class="signin-options__icon" src="./svg/google-icon.svg" />
+            <h2 class="signin-options__content"><%= formType %> With Google</h2>
+          </div>
+        </a>
+      </section>
 
-            <h1 class="signin-options-heading"><%= formType %> With</h1>
+      <h3 class="signin-split">OR</h3>
 
-            <a class="google-auth-link" href="/auth/google">
-                <div class="signin-options signin-options-google">
-                <img class="signin-options__icon " src="./svg/google-icon.svg"/>
-                <h2 class="signin-options__content"><%= formType %>  With Google</h2>
-            </div>
-
-            </a>
-
-            <div class="signin-options signin-options-facebook">
-                <img class="signin-options__icon" src="./svg/facebook-icon.svg"/>
-                <h2 class="signin-options__content"><%= formType %> With Facebook</h2>
-            </div>    
-
-        </section>
-
-            <h3 class="signin-split">OR</h3>
-
-        <form id="form" class="form" method="POST">
-<% if (formType === "signup") {%>
-            <div class="form__input-wrapper">
-                <input placeholder=" " required id="email" name="email" type="email" class="form__input"/>
-                <label for="email">Email</label>
-            </div>
-<% } %>
-            <div class="form__input-wrapper">
-                <input placeholder=" " required id="username" name="username" type="text" class="form__input"/>
-                <label for="username">Username</label>   
-            </div>
-
-            <div class="form__input-wrapper">
-                <input placeholder=" " required id="password" name="password" type="password" class="form__input"/>
-                <label>Password</label>
-            </div>
-
-            <% if (formType === "signin") { %>
-                    <div class="forgot-password-wrapper">
-                    <a class="forgot-password" href="/auth/reset-password"></a>
-                    </div>
-                <% } %>
-               
-                    <p class="errorMessage"></p>
-               
-
-            <div class="form__btm">
-                
-                <div class="form__btn-wrapper">
-                    <button class="form__btn" type="submit"><%=formType%></button>
-                </div>
-                <% if (formType === "signin") { %>
-                    <p class="account-checker">Don't have an account? <a href="/auth/register">Register</a></p>
-                    <% } %>
-                <% if (formType === "signup") { %>
-                    <p class="account-checker">Already have an account? <a href="/auth/signin">Login</a></p>
-                    <% } %>
-
-                   
-                
+      <form id="form" class="form" method="POST">
+        <% if (formType === "signup") {%>
+        <div class="form__input-wrapper">
+          <input
+            placeholder=" "
+            required
+            id="email"
+            name="email"
+            type="email"
+            class="form__input"
+          />
+          <label for="email">Email</label>
         </div>
-        </form>
+        <% } %>
+        <div class="form__input-wrapper">
+          <input
+            placeholder=" "
+            required
+            id="username"
+            name="username"
+            type="text"
+            class="form__input"
+          />
+          <label for="username">Username</label>
+        </div>
+
+        <div class="form__input-wrapper">
+          <input
+            placeholder=" "
+            required
+            id="password"
+            name="password"
+            type="password"
+            class="form__input"
+          />
+          <label>Password</label>
+        </div>
+
+        <% if (formType === "signin") { %>
+        <div class="forgot-password-wrapper">
+          <a class="forgot-password" href="/auth/reset-password"></a>
+        </div>
+        <% } %>
+
+        <p class="errorMessage"></p>
+
+        <div class="form__btm">
+          <div class="form__btn-wrapper">
+            <button class="form__btn" type="submit"><%=formType%></button>
+          </div>
+          <% if (formType === "signin") { %>
+          <p class="account-checker">
+            Don't have an account? <a href="/auth/register">Register</a>
+          </p>
+          <% } %> <% if (formType === "signup") { %>
+          <p class="account-checker">
+            Already have an account? <a href="/auth/signin">Login</a>
+          </p>
+          <% } %>
+        </div>
+      </form>
     </section>
-    
-</body>
+  </body>
 </html>

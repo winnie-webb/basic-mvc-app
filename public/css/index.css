@@ -12,7 +12,6 @@ html {
 
 body {
   font-size: 1.6rem;
-  /* padding: 5rem; */
   overflow-x: hidden;
 }
 
@@ -40,6 +39,7 @@ body {
   text-align: center;
   cursor: pointer;
   height: 6rem;
+  color: #fff;
 }
 .header__login-btn {
   margin-left: auto;
@@ -57,7 +57,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  padding: 5rem;
+  padding: 2rem;
+  padding-top: 0;
 }
 .hero-main__heading {
   font-size: 5.5rem;
@@ -169,6 +170,7 @@ a {
   color: rgb(255, 255, 255);
   text-align: center;
   margin-top: 10rem;
+  position: relative;
 }
 .footer__svgWrapper {
   position: relative;
@@ -176,6 +178,26 @@ a {
   height: 100vh;
   background-color: #204efa;
   padding: 0;
+}
+.footer__content {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.footer__contentHeading {
+  font-size: 4rem;
+  letter-spacing: 0.35rem;
+  min-height: 30vh;
+}
+.footer__socialLinks {
+  display: flex;
+  justify-content: space-around;
+  width: 70%;
+  margin: 0rem auto;
+}
+.social-link img {
+  width: 5rem;
 }
 
 .custom-shape-divider-top-1617651001 {

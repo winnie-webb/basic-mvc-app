@@ -24,8 +24,8 @@ svg path {
 }
 .signin-modal {
   margin: 5rem auto;
-  width: 35rem;
-  min-height: 55rem;
+  width: 30rem;
+  min-height: 30rem;
   box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.25);
   display: flex;
   flex-direction: column;
@@ -39,12 +39,9 @@ svg path {
 
 /* Start Signin Options Styling */
 
-.google-auth-link,
-.facebook-auth-link {
-  text-decoration: none;
-}
 .google-auth-link {
   color: rgb(0, 0, 0);
+  text-decoration: none;
 }
 .signin-options-wrapper {
   padding: 1rem;
@@ -78,10 +75,7 @@ svg path {
 .signin-options-google {
   background-color: rgb(255, 255, 255);
 }
-.signin-options-facebook {
-  background-color: rgb(62, 79, 226);
-  color: rgb(255, 255, 255);
-}
+
 .signin-split {
   color: rgb(114, 114, 114);
   font-size: 1.3rem;
