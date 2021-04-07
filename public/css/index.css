@@ -24,6 +24,7 @@ body {
 /* Header Styling */
 .header {
   display: flex;
+  justify-content: space-evenly;
   padding: 5rem;
   height: 26rem;
 }
@@ -31,15 +32,22 @@ body {
   color: rgb(32, 78, 250);
   font-weight: 500;
 }
+.header__btnWrapper {
+  margin-left: auto;
+  display: flex;
+  justify-content: space-around;
+  height: fit-content;
+}
 .header__btn {
   margin: 0 2rem;
   padding: 1rem;
   border-radius: 4rem;
-  min-width: 18rem;
+  width: 18rem;
   text-align: center;
   cursor: pointer;
   height: 6rem;
   color: #fff;
+  margin-top: -0.6rem;
 }
 .header__login-btn {
   margin-left: auto;
@@ -47,6 +55,61 @@ body {
 }
 .header__signup-btn {
   background: #204efa;
+}
+.burger {
+  display: none;
+}
+.burger__stroke {
+  display: none;
+  width: 6rem;
+  height: 1rem;
+  background-color: #000;
+  border-radius: 0.5rem;
+  margin: 0.3rem;
+}
+
+@media (max-width: 700px) {
+  .header {
+    padding: 2rem;
+    height: 20rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .header {
+    justify-content: space-evenly;
+    padding: 1.5rem;
+  }
+  .header * {
+    margin: 1rem;
+  }
+  .header__btn {
+    padding: 0.6rem;
+    width: 14rem;
+  }
+}
+
+@media (max-width: 450px) {
+  .header {
+    padding: 1.5rem;
+    /* height: rem; */
+  }
+  .header__btnWrapper {
+    margin-top: 2rem;
+    flex-direction: row-reverse;
+  }
+
+  .header__btn {
+    width: fit-content;
+    padding: 0rem;
+    background: none !important;
+  }
+  .header__login-btn {
+    color: rgb(114, 114, 114);
+  }
+  .header__signup-btn {
+    color: #000;
+  }
 }
 
 /*  */
@@ -62,7 +125,9 @@ body {
 }
 .hero-main {
   width: 38%;
+  position: relative;
 }
+
 .hero-main__heading {
   font-size: 5.5rem;
   font-weight: 700;
@@ -115,9 +180,16 @@ body {
   }
   .hero-main__heading {
     font-size: 3.5rem;
+    background: -webkit-linear-gradient(#8a2387, #e94057, #f27121);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 }
 @media (max-width: 760px) {
+  .hero-main-blob {
+    display: block;
+  }
   .hero-svg {
     display: none;
   }
@@ -127,6 +199,18 @@ body {
   }
   .hero-main__heading {
     font-size: 4.5rem;
+  }
+}
+@media (max-width: 450px) {
+  .get_started-btn {
+    margin: 2rem auto;
+  }
+  .hero-main {
+    text-align: center;
+    width: 100%;
+  }
+  .hero-main__heading {
+    font-size: 3rem;
   }
 }
 
@@ -269,7 +353,16 @@ a {
 .fade-left {
   animation: fade-left 1.2s 1;
 }
-
+@keyframes fade-down {
+  from {
+    opacity: 0;
+    transform: translateY(-5rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 @keyframes fade-right {
   from {
     opacity: 0;
