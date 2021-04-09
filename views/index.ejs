@@ -26,25 +26,13 @@
         <a href="/"><h1 class="header__logo">etracky</h1></a>
       </div>
       <div class="header__btnWrapper">
-        <% if (!auth) { %>
         <a class="btn header__btn header__login-btn" href="/auth/signin">
           Login
         </a>
         <a class="btn header__btn header__signup-btn" href="/auth/register">
           Signup
         </a>
-        <% } %> <% if (auth) { %>
-        <div class="btn header__btn header__login-btn"><%= greeting %></div>
-      </div>
-      <a href="/dashboard">
-        <div
-          style="color: rgb(255, 255, 255)"
-          class="btn header__btn header__signup-btn"
-        >
-          Go to dashboard
-        </div>
       </a>
-      <% } %>
     </header>
 
     <section class="section-hero">

@@ -2,11 +2,11 @@ const router = require("express").Router();
 const passport = require("passport");
 const registerUser = require("../models/RegisterUser");
 const InitializePassport = require("../models/InitializePassport");
-const { redirectToHomeIfAlreadyAuth } = require("../models/IsUserAuth");
+const { redirectToDashboardIfAlreadyAuth } = require("../models/IsUserAuth");
 
 InitializePassport(passport);
 
-router.get("/signin", redirectToHomeIfAlreadyAuth, (req, res) => {
+router.get("/signin", redirectToDashboardIfAlreadyAuth, (req, res) => {
   res.render("auth", { formType: "signin", formAction: "/signin" });
 });
 
@@ -29,7 +29,7 @@ router.post("/signin", (req, res, next) => {
   })(req, res, next);
 });
 
-router.get("/register", redirectToHomeIfAlreadyAuth, (req, res) => {
+router.get("/register", redirectToDashboardIfAlreadyAuth, (req, res) => {
   res.render("auth", { formType: "signup", formAction: "/signin" });
 });
 

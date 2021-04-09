@@ -1,9 +1,18 @@
 function redirectToSigninIfNotAuth(req, res, next) {
   if (req.isAuthenticated()) return next();
-  return res.redirect("/auth/signin");
+  res.redirect("/auth/signin");
 }
-function redirectToHomeIfAlreadyAuth(req, res, next) {
+function redirectToDashboardIfAlreadyAuth(req, res, next) {
+  if (req.isAuthenticated()) return res.redirect("/dashboard");
+  next();
+}
+function redirectToHomeIfNoAuth(req, res, next) {
   if (req.isAuthenticated()) return res.redirect("/");
   next();
 }
-module.exports = { redirectToHomeIfAlreadyAuth, redirectToSigninIfNotAuth };
+
+module.exports = {
+  redirectToDashboardIfAlreadyAuth,
+  redirectToSigninIfNotAuth,
+  redirectToHomeIfNoAuth,
+};

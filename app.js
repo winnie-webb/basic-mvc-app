@@ -4,9 +4,7 @@ const session = require("express-session");
 const MongoStore = require("connect-mongo").default;
 const passport = require("passport");
 const methodOverride = require("method-override");
-const UserModel = require("./models/Users");
-const { redirectToSigninIfNotAuth } = require("./models/IsUserAuth");
-
+const { redirectToDashboardIfAlreadyAuth } = require("./models/IsUserAuth");
 const app = express();
 const PORT = process.env.PORT || 3000;
 
@@ -45,27 +43,8 @@ app.set("view engine", "ejs");
 app.set("views", viewsDirPath);
 
 // Initialize Routes
-app.get("/", async (req, res) => {
-  const id = req.user;
-  const isUserFromMySite = req.query.frommysite === "admin";
-
-  if (isUserFromMySite) {
-    return res.render("index", {
-      greeting: `Hi Admin Person`,
-      auth: true,
-    });
-  }
-
-  const isAuth = id ? true : false;
-  if (isAuth) {
-    const user = await UserModel.findById({ _id: id });
-    return res.render("index", {
-      greeting: `Hi ${user.username}`,
-      auth: isAuth,
-    });
-  }
-
-  res.render("index", { auth: false });
+app.get("/", redirectToDashboardIfAlreadyAuth, async (req, res) => {
+  res.render("index");
 });
 const AuthRouter = require("./routes/AuthRouter");
 const DashboardRouter = require("./routes/DashboardRouter");

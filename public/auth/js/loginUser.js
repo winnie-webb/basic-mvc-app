@@ -26,7 +26,7 @@ function loginUser(e) {
     })
       .then((res) => {
         if (res.status === 200) {
-          window.location.href = "/";
+          window.location.href = "/dashboard";
         }
         return res.json();
       })
