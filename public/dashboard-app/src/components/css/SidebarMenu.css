@@ -1,0 +1,28 @@
+.sidebar {
+  background-color: #34495e;
+  box-shadow: 0rem 0rem 1.5rem rgba(0, 0, 0, 0.08);
+  z-index: 2;
+  border-bottom-left-radius: 1.5rem;
+  border-top-left-radius: 1.5rem;
+}
+.sidebar__burger {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  padding: 1rem;
+}
+.menus-wrapper {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  height: 80%;
+}
+.sidebar__home {
+  margin-top: 8rem;
+}
+.sidebar__icon-title {
+  text-align: center;
+  color: #fff;
+  pointer-events: none;
+  font-weight: 400;
+}
