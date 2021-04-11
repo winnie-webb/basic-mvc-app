@@ -10,7 +10,7 @@ function App() {
       <section className="dashboard">
         <SidebarMenu />
         <div className="dashboard__content">
-          <Route path="/" component={WorkoutLog} />
+          <Route path="/" component={WorkoutLog} exact />
           <Route path="/analytics" component={Analytics} />
           <Route path="/weighttracker" component={WeightTracker} />
         </div>
