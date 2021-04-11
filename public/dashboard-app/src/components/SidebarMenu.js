@@ -21,7 +21,7 @@ function SidebarMenu(props) {
         </IconButton>
       </div>
       <div className="menus-wrapper">
-        <NavLink to="/dashboard">
+        <NavLink to="/">
           <div className="sidebar__home">
             <IconButton>
               <HomeIcon style={iconThemes.large} />
@@ -30,7 +30,7 @@ function SidebarMenu(props) {
           </div>
         </NavLink>
 
-        <NavLink to="/dashboard/analytics">
+        <NavLink to="/analytics">
           <div className="sidebar__analytics">
             <IconButton>
               <DashboardIcon style={iconThemes.large} />
@@ -39,7 +39,7 @@ function SidebarMenu(props) {
           </div>
         </NavLink>
 
-        <NavLink to="/dashboard/weighttracker">
+        <NavLink to="/weighttracker">
           <div className="sidebar__support">
             <IconButton>
               <ContactSupportIcon style={iconThemes.large} />

@@ -9,9 +9,11 @@ function App() {
     <HashRouter>
       <section className="dashboard">
         <SidebarMenu />
-        <Route path="/dashboard" component={WorkoutLog} />
-        <Route path="/dashboard/analytics" component={Analytics} />
-        <Route path="/dashboard/weighttracker" component={WeightTracker} />
+        <div className="dashboard__content">
+          <Route path="/" component={WorkoutLog} />
+          <Route path="/analytics" component={Analytics} />
+          <Route path="/weighttracker" component={WeightTracker} />
+        </div>
       </section>
     </HashRouter>
   );
