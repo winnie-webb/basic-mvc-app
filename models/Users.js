@@ -16,6 +16,7 @@ const UserSchema = new mongoose.Schema({
   username: {
     type: String,
     required: true,
+    trim: true,
   },
 
   provider: {
@@ -29,6 +30,6 @@ const UserSchema = new mongoose.Schema({
   },
 });
 
-const User = mongoose.model("Users", UserSchema);
+const UserModel = mongoose.model("Users", UserSchema);
 
-module.exports = User;
+module.exports = UserModel;

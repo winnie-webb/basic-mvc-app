@@ -8,10 +8,11 @@ async function ConnectToDb() {
     await mongoose.connect(DB_URI, {
       useUnifiedTopology: true,
       useNewUrlParser: true,
+      useCreateIndex: true,
     });
     console.log("Connected To Db");
   } catch (err) {
-    return err.message;
+    console.log("Connection Not Established");
   }
 }
 module.exports = ConnectToDb;
