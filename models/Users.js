@@ -21,12 +21,15 @@ const UserSchema = new mongoose.Schema({
 
   provider: {
     type: String,
-    enum: ["local", "google", "facebook"],
+    enum: ["local", "google"],
   },
 
   password: {
     type: String,
     required: () => this.provider === "local",
+  },
+  exercises: {
+    type: Array,
   },
 });
 

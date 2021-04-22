@@ -26,7 +26,9 @@ function loginUser(e) {
     })
       .then((res) => {
         if (res.status === 200) {
-          window.location.href = "/dashboard";
+          localStorage.setItem("username", userData.username);
+          window.location.href = "/";
+          return;
         }
         return res.json();
       })

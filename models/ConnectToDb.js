@@ -9,6 +9,7 @@ async function ConnectToDb() {
       useUnifiedTopology: true,
       useNewUrlParser: true,
       useCreateIndex: true,
+      useFindAndModify: true,
     });
     console.log("Connected To Db");
   } catch (err) {
