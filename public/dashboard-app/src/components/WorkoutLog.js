@@ -21,10 +21,25 @@ function WorkoutLog() {
       .catch((err) => console.log(err));
   }, [username]);
 
-  // function saveNewExerciseToDb(exercise) {
-  //   fetch("/")
-  // }
-  function handleExerciseSubmition() {
+  async function saveNewExerciseToDb(exercises) {
+    const requestData = {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json; charset=UTF-8",
+      },
+      body: JSON.stringify({ exercises }),
+    };
+    try {
+      fetch(
+        `http://localhost:4000/dashboard/${username}/exercises`,
+        requestData
+      );
+    } catch (err) {
+      console.log(exercises);
+      setExercises([]);
+    }
+  }
+  async function handleExerciseSubmition() {
     const exerciseInputContent = exerciseInputElement.current.value;
     const isExerciseInputValid =
       exerciseInputContent === "" || exerciseInputContent === null;
@@ -33,16 +48,16 @@ function WorkoutLog() {
 
     const newExercises = [...exercises];
     const newExerciseDate = new Date(exerciseDate).toDateString();
-    const newExerciseTime = new Date(exerciseDate).toTimeString();
+    const newExerciseTime = new Date(exerciseDate).toLocaleTimeString();
+
     const exerciseField = {
       exerciseName: exerciseInputContent,
       date: newExerciseDate,
       time: newExerciseTime,
     };
     newExercises.push(exerciseField);
-
+    await saveNewExerciseToDb(newExercises);
     setExercises(newExercises);
-    console.log(exercises, newExercises);
   }
   function handleDateChange(date) {
     setExerciseDate(date);

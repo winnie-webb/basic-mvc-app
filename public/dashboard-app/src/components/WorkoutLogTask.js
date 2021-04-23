@@ -8,7 +8,6 @@ function WorkoutLogTask(props) {
       {exerciseName}
       <div className="workoutlog__exerciseContent">
         <span className="workoutlog__exerciseDate">
-          {" "}
           Due: {date} ({time})
         </span>
         <span className="workoutlog__exerciseDuration">Duration: 35mins</span>

@@ -11,33 +11,22 @@ router.use("/:username", express.static("public/dashboard"));
 router.get("/:username", redirectToSigninIfNotAuth, async (req, res) => {
   res.render("dashboard.ejs");
 });
-router.post(
-  "/:username/exercises",
-  redirectToSigninIfNotAuth,
-  async (req, res) => {
-    const { newExercises } = req.body;
+router.patch("/:username/exercises", async (req, res) => {
+  const { exercises } = req.body;
+  try {
     const user = await UserModel.findOneAndUpdate({
-      _id: req.user,
-      exercises: [...newExercises],
+      username: "wbrown ",
+      exercises: exercises,
     });
-    user.save();
+    await user.save();
+    res.json({ saved: true });
+  } catch (err) {
+    res.json({ saved: false });
   }
-);
+});
 router.get("/:username/exercises", async (req, res) => {
-  res.send({
-    exercises: [
-      {
-        exerciseName: "Pushup",
-        date: "Thu Apr 22 2021",
-        time: "16:08:42",
-      },
-      {
-        exerciseName: "Pushup",
-        date: "Thu Apr 22 2021",
-        time: "16:08:42",
-      },
-    ],
-  });
+  const user = await UserModel.findOne({ username: "wbrown" });
+  res.json({ exercises: user.exercises });
   // try {
   //   const user = await UserModel.findOne({ _id: req.user });
   //   if (!user) res.redirect("/auth/signin");
