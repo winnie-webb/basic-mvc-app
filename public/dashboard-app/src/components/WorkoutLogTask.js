@@ -1,10 +1,11 @@
 import React from "react";
 
 function WorkoutLogTask(props) {
-  const { date, exercise, index, time } = props;
+  const { index } = props;
+  const { date, exerciseName, time } = props.exercise;
   return (
     <li className="workoutlog__exercise" completed="false" key={index}>
-      {exercise}
+      {exerciseName}
       <div className="workoutlog__exerciseContent">
         <span className="workoutlog__exerciseDate">
           {" "}

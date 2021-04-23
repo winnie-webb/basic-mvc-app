@@ -24,12 +24,26 @@ router.post(
   }
 );
 router.get("/:username/exercises", async (req, res) => {
-  try {
-    const user = await UserModel.findOne({ _id: req.user });
-    if (!user) res.redirect("/auth/signin");
-    res.send(JSON.stringify(user.exercises));
-  } catch (err) {
-    console.log(err);
-  }
+  res.send({
+    exercises: [
+      {
+        exerciseName: "Pushup",
+        date: "Thu Apr 22 2021",
+        time: "16:08:42",
+      },
+      {
+        exerciseName: "Pushup",
+        date: "Thu Apr 22 2021",
+        time: "16:08:42",
+      },
+    ],
+  });
+  // try {
+  //   const user = await UserModel.findOne({ _id: req.user });
+  //   if (!user) res.redirect("/auth/signin");
+  //   res.send(JSON.stringify(user.exercises));
+  // } catch (err) {
+  //   console.log(err);
+  // }
 });
 module.exports = router;
