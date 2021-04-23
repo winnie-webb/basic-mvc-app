@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-
+import { v4 as uuid } from "uuid";
 import WorkoutLogTask from "./WorkoutLogTask";
 import WorkoutLogPickers from "./WorkoutLogPickers";
 import "./css/WorkoutLog.css";
@@ -54,6 +54,7 @@ function WorkoutLog() {
       exerciseName: exerciseInputContent,
       date: newExerciseDate,
       time: newExerciseTime,
+      id: uuid(),
     };
     newExercises.push(exerciseField);
     await saveNewExerciseToDb(newExercises);
@@ -89,8 +90,8 @@ function WorkoutLog() {
       </div>
 
       <ul className="workoutlog__exerciseWrapper">
-        {exercises.map((exercise, index) => {
-          return <WorkoutLogTask index={index} exercise={exercise} />;
+        {exercises.map((exercise) => {
+          return <WorkoutLogTask key={exercise.id} exercise={exercise} />;
         })}
       </ul>
     </aside>
