@@ -10,6 +10,7 @@ function WorkoutLog() {
   );
 
   const exerciseInputElement = useRef();
+  const exerciseWrapperElement = useRef();
 
   const username = localStorage.getItem("username");
   const currentDate = new Date().toDateString();
@@ -21,6 +22,7 @@ function WorkoutLog() {
       .catch((err) => console.log(err));
   }, [username]);
 
+  function removeExercise(id) {}
   async function saveNewExerciseToDb(exercises) {
     const requestData = {
       method: "PATCH",
@@ -59,6 +61,8 @@ function WorkoutLog() {
     newExercises.push(exerciseField);
     await saveNewExerciseToDb(newExercises);
     setExercises(newExercises);
+    const exerciseWrapper = exerciseWrapperElement.current;
+    exerciseWrapper.scrollTop = exerciseWrapper.scrollHeight;
   }
   function handleDateChange(date) {
     setExerciseDate(date);
@@ -89,7 +93,7 @@ function WorkoutLog() {
         </button>
       </div>
 
-      <ul className="workoutlog__exerciseWrapper">
+      <ul ref={exerciseWrapperElement} className="workoutlog__exerciseWrapper">
         {exercises.map((exercise) => {
           return <WorkoutLogTask key={exercise.id} exercise={exercise} />;
         })}

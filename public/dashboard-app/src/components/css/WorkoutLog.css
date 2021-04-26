@@ -1,6 +1,7 @@
 .workoutlog {
   padding: 3rem;
   height: 100%;
+  --exerciseBorderColor: rgb(221, 221, 221);
 }
 .workoutlog__heading {
   font-size: 2.5rem;
@@ -39,14 +40,14 @@
 .workoutlog__addInput {
   padding: 1.3rem;
   width: 30rem;
-  box-shadow: 0 0.2rem 2rem rgba(0, 0, 0, 0.133);
+  box-shadow: 0 0.2rem 2rem var(--defaultBoxShadow);
   text-transform: capitalize;
 }
 .rdrCalendarWrapper {
   position: absolute;
   bottom: 20rem;
   z-index: 100;
-  box-shadow: 0 0.2rem 2rem rgba(0, 0, 0, 0.133);
+  box-shadow: 0 0.2rem 2rem var(--defaultBoxShadow);
 }
 .workoutlog__dateInput {
   padding: 0.8rem;
@@ -67,28 +68,69 @@
 .workoutlog__exerciseWrapper {
   overflow-y: scroll;
   height: 30rem;
+  scroll-behavior: smooth;
+  margin-top: 4rem;
 }
 .workoutlog__exercise {
   width: 70%;
   list-style: none;
-  background-color: #2ecc71;
   margin: 2rem auto;
-  padding: 2rem;
-  border-radius: 0.5rem;
-  color: #fff;
+  padding: 1.5rem;
+  color: rgb(58, 58, 58);
   position: relative;
   display: flex;
+  flex-direction: column;
   cursor: pointer;
   text-transform: capitalize;
+  box-shadow: 0 0.2rem 2rem var(--defaultBoxShadow);
+  border-radius: 0.2rem;
 }
-.workoutlog__exercise span {
-  font-size: 1.3rem;
-  top: 1rem;
-  right: 1rem;
-  width: 25rem;
+.workoutlog__exerciseCompleted {
+  margin: 1rem;
+}
+.workoutlog__exerciseIcons {
+  display: flex;
   position: absolute;
-  display: block;
+  right: 4rem;
 }
-.workoutlog__exerciseDuration {
-  top: 3.5rem !important;
+.workoutlog__exerciseContent span {
+  font-size: 1.3rem;
+  display: block;
+  padding: 0.5rem;
+  margin-left: 2rem;
+}
+.workoutlog__exerciseDeleteModal {
+  width: 35rem;
+  height: 15rem;
+  padding: 4rem;
+  background-color: #fff;
+  box-shadow: var(--defaultBoxShadow);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 20;
+}
+.modal-bg {
+  opacity: 0.8;
+  background-color: black;
+  height: 110vh;
+  width: 100vw;
+  z-index: 19;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.modal-optionsWrapper {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 100%;
+}
+.modal-optionYes {
+  color: red;
+}
+.modal-optionCancel {
+  color: blue;
 }
