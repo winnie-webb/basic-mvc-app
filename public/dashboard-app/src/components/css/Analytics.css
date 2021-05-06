@@ -35,7 +35,7 @@
 }
 .analytics__wrapperBottom {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   grid-auto-rows: 35rem;
   gap: 2rem;
   padding: 2rem;
@@ -51,10 +51,7 @@
   align-items: center;
 }
 
-.analytics__cardBottom2 {
-  grid-column: span 2;
-}
 .chartjs-render-monitor {
-  width: 40rem;
-  height: 35rem;
+  width: 80%;
+  height: 90%;
 }
