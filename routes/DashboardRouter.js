@@ -13,6 +13,22 @@ router.get("/:username", redirectToSigninIfNotAuth, async (req, res) => {
 });
 router.patch("/:username/exercises", async (req, res) => {
   const { exercises } = req.body;
+  console.log(exercises);
+  try {
+    const user = await UserModel.findOneAndUpdate({
+      username: "wbrown ",
+      exercises: exercises,
+    });
+    await user.save();
+    res.json({ saved: true });
+  } catch (err) {
+    res.json({ saved: false });
+  }
+});
+
+router.delete("/:username/exercises", async (req, res) => {
+  const { exercises } = req.body;
+  console.log(exercises);
   try {
     const user = await UserModel.findOneAndUpdate({
       username: "wbrown ",

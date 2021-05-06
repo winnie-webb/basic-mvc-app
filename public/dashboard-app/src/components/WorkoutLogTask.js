@@ -1,56 +1,70 @@
 import React, { useState, useRef } from "react";
 import DeleteIcon from "@material-ui/icons/Delete";
-import UpdateIcon from "@material-ui/icons/Update";
+import EditIcon from "@material-ui/icons/Edit";
 import { IconButton } from "@material-ui/core";
 
 function WorkoutLogTask(props) {
-  const { date, exerciseName, time, id } = props.exercise;
-  const [showDeleteModal, setShowDeleteModal] = useState(false);
-  const modalBgElement = useRef();
-
+  const {
+    removeExercise,
+    checkExerciseBox,
+    updateExerciseName,
+  } = props.functions;
+  const { date, exerciseName, time, id, completed } = props.exercise;
+  const [editing, setEditing] = useState(false);
+  const inputNameElement = useRef();
+  const className = !completed
+    ? "workoutlog__exercise"
+    : "workoutlog__exercise exercise-completed";
   return (
     <>
-      {showDeleteModal && <div ref={modalBgElement} className="modal-bg"></div>}
-
-      <li key={id} className="workoutlog__exercise" completed="false">
-        <div className="util">
+      <li key={id} className={className}>
+        <div className="util-div">
           <input
             type="checkbox"
+            onChange={() => checkExerciseBox(id)}
+            checked={completed}
             className="workoutlog__exerciseCompleted"
           ></input>
-          <span>{exerciseName}</span>
+          {!editing && <span>{exerciseName}</span>}
+          {editing && (
+            <>
+              <input
+                ref={inputNameElement}
+                className="workoutlog__exerciseEditor"
+                type="text"
+                placeholder="Edit exercise name"
+              />
+              <button
+                onClick={() => {
+                  const newName = inputNameElement.current.value;
+                  if (!newName) return;
+                  setEditing(!editing);
+                  updateExerciseName(id, newName);
+                }}
+                className="workoutlog__exerciseEditor__submit"
+              >
+                Update
+              </button>
+            </>
+          )}
         </div>
         <div className="workoutlog__exerciseContent">
           <span className="workoutlog__exerciseDate">
             Due: {date} ({time})
           </span>
         </div>
-        {showDeleteModal && (
-          <div className="workoutlog__exerciseDeleteModal">
-            <h3>Are you sure</h3>
-            <div className="modal-optionsWrapper">
-              <span className="modal-optionYes">Yes</span>
-              <span
-                onClick={() => setShowDeleteModal(!showDeleteModal)}
-                className="modal-optionCancel"
-              >
-                Cancel
-              </span>
-            </div>
-          </div>
-        )}
 
         <div className="workoutlog__exerciseIcons">
           <IconButton
             onClick={() => {
-              setShowDeleteModal(!showDeleteModal);
+              removeExercise(id);
             }}
           >
             <DeleteIcon style={{ fontSize: "3rem", color: "#e74c3c" }} />
           </IconButton>
 
-          <IconButton>
-            <UpdateIcon style={{ fontSize: "3rem", color: "#27ae60" }} />
+          <IconButton onClick={() => setEditing(!editing)}>
+            <EditIcon style={{ fontSize: "3rem", color: "#2980b9" }} />
           </IconButton>
         </div>
       </li>
