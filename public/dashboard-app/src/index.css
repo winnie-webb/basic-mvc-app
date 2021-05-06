@@ -28,3 +28,8 @@ body {
 a {
   text-decoration: none;
 }
+@media (max-width: 950px) {
+  body {
+    padding: 0;
+  }
+}

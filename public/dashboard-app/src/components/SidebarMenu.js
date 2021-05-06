@@ -13,12 +13,8 @@ function SidebarMenu(props) {
   };
   return (
     <aside className="sidebar">
-      <div className="sidebar__burger">
-        <IconButton>
-          <MenuIcon
-            style={{ fontSize: "4.5rem", color: "white", borderRadius: 10 }}
-          />
-        </IconButton>
+      <div className="sidebar__logout" style={{ color: "#fff" }}>
+        Logout
       </div>
       <div className="menus-wrapper">
         <NavLink to="/">

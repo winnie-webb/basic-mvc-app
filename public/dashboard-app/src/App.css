@@ -6,3 +6,14 @@
   background-color: #ecf0f1;
   border-radius: 1rem;
 }
+@media (max-width: 950px) {
+  .dashboard {
+    height: auto;
+  }
+}
+
+@media (max-width: 650px) {
+  .dashboard {
+    grid-template-columns: 1fr;
+  }
+}
