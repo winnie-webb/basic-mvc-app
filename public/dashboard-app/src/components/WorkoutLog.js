@@ -100,7 +100,7 @@ function WorkoutLog() {
         <div className="workoutlog__inputsWrapper">
           <input
             ref={exerciseInputElement}
-            className="workoutlog__addInput workoutlog__input"
+            className="workoutlog__addInput workoutlog__input util-pillBtn"
             placeholder="Exercise Name"
           ></input>
           <WorkoutLogPickers
@@ -110,7 +110,7 @@ function WorkoutLog() {
         </div>
         <button
           onClick={handleExerciseSubmition}
-          className="workoutlog__addSubmit"
+          className="workoutlog__addSubmit util-pillBtn"
         >
           Add Exercise
         </button>

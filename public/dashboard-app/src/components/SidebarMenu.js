@@ -1,8 +1,7 @@
 import React from "react";
 import HomeIcon from "@material-ui/icons/Home";
 import DashboardIcon from "@material-ui/icons/Dashboard";
-import ContactSupportIcon from "@material-ui/icons/ContactSupport";
-import MenuIcon from "@material-ui/icons/Menu";
+import FitnessCenterIcon from "@material-ui/icons/FitnessCenter";
 import "./css/SidebarMenu.css";
 import { IconButton } from "@material-ui/core";
 import { NavLink } from "react-router-dom";
@@ -38,9 +37,9 @@ function SidebarMenu(props) {
         <NavLink to="/weighttracker">
           <div className="sidebar__support">
             <IconButton>
-              <ContactSupportIcon style={iconThemes.large} />
+              <FitnessCenterIcon style={iconThemes.large} />
             </IconButton>
-            <span className="sidebar__icon-title">Support</span>
+            <span className="sidebar__icon-title">Weight Log</span>
           </div>
         </NavLink>
       </div>

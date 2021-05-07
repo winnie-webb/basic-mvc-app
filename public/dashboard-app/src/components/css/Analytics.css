@@ -34,10 +34,7 @@
   font-size: 3rem;
 }
 .analytics__wrapperBottom {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-auto-rows: 35rem;
-  gap: 2rem;
+  grid-template-columns: 1fr;
   padding: 2rem;
 }
 .analytics__cardBottom {

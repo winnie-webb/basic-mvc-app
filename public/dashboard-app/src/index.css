@@ -28,6 +28,11 @@ body {
 a {
   text-decoration: none;
 }
+.util-pillBtn {
+  border-radius: 5rem;
+  outline: none;
+  border: none;
+}
 @media (max-width: 950px) {
   body {
     padding: 0;

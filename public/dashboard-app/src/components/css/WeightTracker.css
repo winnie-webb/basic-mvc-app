@@ -1,0 +1,53 @@
+.weighttracker {
+  height: 100%;
+}
+.weighttracker__add {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  margin: 3rem;
+  height: 30%;
+}
+.weighttracker__addEntry {
+  padding: 1rem 3rem;
+  display: block;
+  margin: 2rem 0;
+}
+.add-new-entry {
+  padding: 1rem 4rem;
+  background-color: #3b3b98;
+  color: #fff;
+  cursor: pointer;
+}
+.weight-unit {
+  border-radius: 5rem;
+  padding: 1rem 2rem;
+  position: absolute;
+  right: 0rem;
+}
+.graph-wrapper {
+  margin: 0 auto;
+  height: 60%;
+  width: 80%;
+  background-color: #fff;
+  padding: 3rem;
+  border-radius: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  box-shadow: var(--defaultBoxShadow);
+}
+.chartjs-render-monitor {
+  height: 100% !important;
+  width: 90% !important;
+}
+
+.util-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}

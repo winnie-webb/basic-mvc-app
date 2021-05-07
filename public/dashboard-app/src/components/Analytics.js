@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./css/Analytics.css";
-import { Bar, Line } from "react-chartjs-2";
+import WeightTrackerGraph from "./WeightTrackerGraph";
 function Analytics() {
   const username = localStorage.getItem("username");
   const [exercises, setExercises] = useState([]);
@@ -21,28 +21,14 @@ function Analytics() {
   const missingExercises = exercisesCopy.filter((exercise) => {
     return new Date(exercise.date).getTime() <= currentDate.getTime();
   }).length;
-  const weightData = {
-    labels: ["Week 1", "Week 2", "Week 3", "Week 4", "Week 5", "Week 6"],
+  const weightDataContent = {
+    labels: [],
     datasets: [
       {
         label: "Weight Tracker",
-        data: [200, 190, 160, 164, 150, 130],
-        backgroundColor: [
-          "rgba(255, 99, 132, 0.2)",
-          "rgba(54, 162, 235, 0.2)",
-          "rgba(255, 206, 86, 0.2)",
-          "rgba(75, 192, 192, 0.2)",
-          "rgba(153, 102, 255, 0.2)",
-          "rgba(255, 159, 64, 0.2)",
-        ],
-        borderColor: [
-          "rgba(255, 99, 132, 1)",
-          "rgba(54, 162, 235, 1)",
-          "rgba(255, 206, 86, 1)",
-          "rgba(75, 192, 192, 1)",
-          "rgba(153, 102, 255, 1)",
-          "rgba(255, 159, 64, 1)",
-        ],
+        data: [],
+        backgroundColor: ["#3B3B98"],
+        borderColor: ["#EAB543"],
         borderWidth: 1,
       },
     ],
@@ -71,11 +57,8 @@ function Analytics() {
         </div>
       </div>
       <div className="analytics__wrapperBottom">
-        <div className="analytics__cardBottom">
-          <Line data={weightData} />
-        </div>
-        <div className="analytics__cardBottom analytics__cardBottom2">
-          <Line data={weightData} />
+        <div className="analytics__cardBottom analytics__cardBottom">
+          <WeightTrackerGraph weightDataContent={weightDataContent} />
         </div>
       </div>
     </aside>
