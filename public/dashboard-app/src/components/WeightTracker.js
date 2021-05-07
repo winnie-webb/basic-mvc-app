@@ -1,9 +1,16 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import WeightTrackerGraph from "./WeightTrackerGraph";
 import "./css/WeightTracker.css";
 function WeightTracker() {
   const [chartData, setChartData] = useState([]);
   const username = localStorage.getItem("username");
+
+  useEffect(() => {
+    fetch(`http://localhost:4000/dashboard/${username}/chartdata`)
+      .then((res) => res.json())
+      .then((res) => setChartData(res.chartData))
+      .catch((res) => setChartData([]));
+  }, [username]);
   const weightDataContent = {
     labels: [...chartData],
     datasets: [

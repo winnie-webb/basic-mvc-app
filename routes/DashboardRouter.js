@@ -25,19 +25,6 @@ router.patch("/:username/exercises", async (req, res) => {
     res.json({ saved: false });
   }
 });
-router.patch("/:username/chartdata", async (req, res) => {
-  const { chartData } = req.body;
-  try {
-    const user = await UserModel.findOneAndUpdate({
-      username: "wbrown ",
-      chartData: chartData,
-    });
-    await user.save();
-    res.json({ saved: true });
-  } catch (err) {
-    res.json({ saved: false });
-  }
-});
 
 router.delete("/:username/exercises", async (req, res) => {
   const { exercises } = req.body;
@@ -63,5 +50,23 @@ router.get("/:username/exercises", async (req, res) => {
   // } catch (err) {
   //   console.log(err);
   // }
+});
+
+router.patch("/:username/chartdata", async (req, res) => {
+  const { chartData } = req.body;
+  try {
+    const user = await UserModel.findOneAndUpdate({
+      username: "wbrown ",
+      chartData: chartData,
+    });
+    await user.save();
+    res.json({ saved: true });
+  } catch (err) {
+    res.json({ saved: false });
+  }
+});
+router.get("/:username/chartdata", async (req, res) => {
+  // const user = await UserModel.findOne({ username: "wbrown" });
+  res.json({ chartData: [120, 122, 321] });
 });
 module.exports = router;

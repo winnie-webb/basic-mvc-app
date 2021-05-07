@@ -4,6 +4,7 @@ import WeightTrackerGraph from "./WeightTrackerGraph";
 function Analytics() {
   const username = localStorage.getItem("username");
   const [exercises, setExercises] = useState([]);
+  const [chartData, setChartData] = useState([]);
 
   useEffect(() => {
     fetch(`http://localhost:4000/dashboard/${username}/exercises`)
@@ -12,6 +13,12 @@ function Analytics() {
       .catch((err) => setExercises([]));
   }, [username]);
 
+  useEffect(() => {
+    fetch(`http://localhost:4000/dashboard/${username}/chartdata`)
+      .then((res) => res.json())
+      .then((res) => setChartData(res.chartData))
+      .catch((res) => setChartData([]));
+  }, [username]);
   const exercisesCopy = [...exercises];
   const completedExercises = exercisesCopy.filter(
     (exercise) => exercise.completed
@@ -26,7 +33,7 @@ function Analytics() {
     datasets: [
       {
         label: "Weight Tracker",
-        data: [],
+        data: [...chartData],
         backgroundColor: ["#3B3B98"],
         borderColor: ["#EAB543"],
         borderWidth: 1,
