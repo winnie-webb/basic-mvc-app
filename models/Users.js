@@ -31,6 +31,9 @@ const UserSchema = new mongoose.Schema({
   exercises: {
     type: Array,
   },
+  chartData: {
+    type: Array,
+  },
 });
 
 const UserModel = mongoose.model("Users", UserSchema);

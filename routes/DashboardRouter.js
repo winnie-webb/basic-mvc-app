@@ -25,6 +25,19 @@ router.patch("/:username/exercises", async (req, res) => {
     res.json({ saved: false });
   }
 });
+router.patch("/:username/chartdata", async (req, res) => {
+  const { chartData } = req.body;
+  try {
+    const user = await UserModel.findOneAndUpdate({
+      username: "wbrown ",
+      chartData: chartData,
+    });
+    await user.save();
+    res.json({ saved: true });
+  } catch (err) {
+    res.json({ saved: false });
+  }
+});
 
 router.delete("/:username/exercises", async (req, res) => {
   const { exercises } = req.body;

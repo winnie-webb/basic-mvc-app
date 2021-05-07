@@ -3,6 +3,7 @@ import WeightTrackerGraph from "./WeightTrackerGraph";
 import "./css/WeightTracker.css";
 function WeightTracker() {
   const [chartData, setChartData] = useState([]);
+  const username = localStorage.getItem("username");
   const weightDataContent = {
     labels: [...chartData],
     datasets: [
@@ -18,7 +19,25 @@ function WeightTracker() {
 
   const weightEntryElement = useRef();
 
-  function handleWeightSubmition() {
+  async function saveWeightDataToDb(chartData) {
+    const requestData = {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json; charset=UTF-8",
+      },
+      body: JSON.stringify({ chartData }),
+    };
+    console.log(requestData);
+    try {
+      fetch(
+        `http://localhost:4000/dashboard/${username}/chartdata`,
+        requestData
+      );
+    } catch (err) {
+      setChartData([]);
+    }
+  }
+  async function handleWeightSubmition() {
     const weightEntry = Number(weightEntryElement.current.value);
     if (isNaN(weightEntry)) return;
 
@@ -26,6 +45,7 @@ function WeightTracker() {
     newChartData.push(weightEntry);
     setChartData(newChartData);
     weightEntryElement.current.value = "";
+    await saveWeightDataToDb(newChartData);
   }
   return (
     <aside className="weighttracker">
