@@ -81,13 +81,11 @@ function WorkoutLog() {
     if (isExerciseInputValid) return;
 
     const newExercises = [...exercises];
-    const newExerciseDate = new Date(exerciseDate).toDateString();
-    const newExerciseTime = new Date(exerciseDate).toLocaleTimeString();
+    console.log(exerciseDate);
     const exerciseField = {
       exerciseName: exerciseInputContent,
       completed: false,
-      date: newExerciseDate,
-      time: newExerciseTime,
+      date: exerciseDate,
       id: uuid(),
     };
     newExercises.push(exerciseField);
@@ -117,12 +115,15 @@ function WorkoutLog() {
             handleDateChange={handleDateChange}
           />
         </div>
-        <button
-          onClick={handleExerciseSubmition}
-          className="workoutlog__addSubmit util-pillBtn"
-        >
-          Add Exercise
-        </button>
+
+        {!isLoading && (
+          <button
+            onClick={handleExerciseSubmition}
+            className="workoutlog__addSubmit util-pillBtn"
+          >
+            Add Exercise
+          </button>
+        )}
       </div>
       {isLoading && <div className="loader"></div>}
 

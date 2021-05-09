@@ -7,9 +7,13 @@
 .workoutlog__heading {
   font-size: 2.5rem;
 }
-.workoutlog__heading span {
+.missing {
+  color: red !important;
+}
+.workoutlog__exerciseName {
   font-size: 1.6rem;
   color: rgb(100, 100, 100);
+  display: inline-block;
 }
 .workoutlog__add {
   display: flex;

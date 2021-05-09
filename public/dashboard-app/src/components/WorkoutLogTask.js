@@ -9,9 +9,12 @@ function WorkoutLogTask(props) {
     checkExerciseBox,
     updateExerciseName,
   } = props.functions;
-  const { date, exerciseName, time, id, completed } = props.exercise;
+  const { date, exerciseName, id, completed } = props.exercise;
   const [editing, setEditing] = useState(false);
+
   const inputNameElement = useRef();
+  const isMissing = new Date(date).getTime() <= new Date().getTime();
+
   const className = !completed
     ? "workoutlog__exercise"
     : "workoutlog__exercise exercise-completed";
@@ -25,7 +28,17 @@ function WorkoutLogTask(props) {
             checked={completed}
             className="workoutlog__exerciseCompleted"
           ></input>
-          {!editing && <span>{exerciseName}</span>}
+          {!editing && (
+            <p
+              className={
+                isMissing && !completed
+                  ? "missing workoutlog__exerciseName"
+                  : "workoutlog__exerciseName"
+              }
+            >
+              {exerciseName} <span></span>
+            </p>
+          )}
           {editing && (
             <>
               <input
@@ -50,7 +63,8 @@ function WorkoutLogTask(props) {
         </div>
         <div className="workoutlog__exerciseContent">
           <span className="workoutlog__exerciseDate">
-            Due: {date} ({time})
+            Due: {new Date(date).toLocaleDateString()} (
+            {new Date(date).toLocaleTimeString()})
           </span>
         </div>
 
