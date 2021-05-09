@@ -41,7 +41,7 @@ function WorkoutLogTask(props) {
                   setEditing(!editing);
                   updateExerciseName(id, newName);
                 }}
-                className="workoutlog__exerciseEditor__submit"
+                className="workoutlog__exerciseEditor__submit util-pillBtn"
               >
                 Update
               </button>

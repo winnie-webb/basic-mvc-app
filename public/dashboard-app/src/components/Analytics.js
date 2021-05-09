@@ -19,17 +19,15 @@ function Analytics() {
       .then((res) => setChartData(res.chartData))
       .catch((res) => setChartData([]));
   }, [username]);
-  const exercisesCopy = [...exercises];
-  const completedExercises = exercisesCopy.filter(
-    (exercise) => exercise.completed
-  ).length;
+  const completedExercises = exercises.filter((exercise) => exercise.completed)
+    .length;
 
   const currentDate = new Date();
-  const missingExercises = exercisesCopy.filter((exercise) => {
+  const missingExercises = exercises.filter((exercise) => {
     return new Date(exercise.date).getTime() <= currentDate.getTime();
   }).length;
   const weightDataContent = {
-    labels: [],
+    labels: [...chartData],
     datasets: [
       {
         label: "Weight Tracker",

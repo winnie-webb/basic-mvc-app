@@ -66,7 +66,7 @@ router.patch("/:username/chartdata", async (req, res) => {
   }
 });
 router.get("/:username/chartdata", async (req, res) => {
-  // const user = await UserModel.findOne({ username: "wbrown" });
-  res.json({ chartData: [120, 122, 321] });
+  const user = await UserModel.findOne({ username: "wbrown" });
+  res.json({ chartData: user.chartData });
 });
 module.exports = router;
