@@ -1,5 +1,6 @@
 .weighttracker {
   height: 100%;
+  padding-bottom: 3rem;
 }
 .weighttracker__add {
   display: flex;
@@ -50,4 +51,10 @@
   justify-content: center;
   align-items: center;
   position: relative;
+}
+@media (max-width: 520px) {
+  .graph-wrapper {
+    height: 90%;
+    width: 100%;
+  }
 }

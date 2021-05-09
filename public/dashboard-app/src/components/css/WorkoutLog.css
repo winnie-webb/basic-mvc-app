@@ -2,6 +2,7 @@
   padding: 3rem;
   height: 100%;
   --exerciseBorderColor: rgb(221, 221, 221);
+  background-color: #ecf0f1;
 }
 .workoutlog__heading {
   font-size: 2.5rem;
@@ -121,5 +122,24 @@
   .workoutlog__exerciseIcons {
     position: relative;
     right: 0;
+  }
+}
+.loader {
+  border: 3px white solid;
+  border-top: 3px blue solid;
+  height: 10rem;
+  width: 10rem;
+  border-radius: 50%;
+  animation: load 1s infinite;
+  margin: 0 auto;
+  margin-top: 4rem;
+}
+
+@keyframes load {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
   }
 }

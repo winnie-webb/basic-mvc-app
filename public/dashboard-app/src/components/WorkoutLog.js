@@ -5,6 +5,7 @@ import WorkoutLogPickers from "./WorkoutLogPickers";
 import "./css/WorkoutLog.css";
 function WorkoutLog() {
   const [exercises, setExercises] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
   const [exerciseDate, setExerciseDate] = useState(
     new Date().toLocaleDateString()
   );
@@ -17,9 +18,17 @@ function WorkoutLog() {
 
   useEffect(() => {
     fetch(`http://localhost:4000/dashboard/${username}/exercises`)
-      .then((res) => res.json())
-      .then((res) => setExercises(res.exercises))
-      .catch((err) => setExercises([]));
+      .then((res) => {
+        setIsLoading(false);
+        return res.json();
+      })
+      .then((res) => {
+        setExercises(res.exercises);
+      })
+      .catch((err) => {
+        setExercises([]);
+        setIsLoading(false);
+      });
   }, [username]);
 
   async function removeExercise(id) {
@@ -115,6 +124,7 @@ function WorkoutLog() {
           Add Exercise
         </button>
       </div>
+      {isLoading && <div className="loader"></div>}
 
       <ul ref={exerciseWrapperElement} className="workoutlog__exerciseWrapper">
         {exercises.map((exercise) => {
