@@ -2,6 +2,7 @@ const { redirectToSigninIfNotAuth } = require("../models/IsUserAuth");
 const UserModel = require("../models/Users");
 const express = require("express");
 const router = require("express").Router();
+
 router.get("/", redirectToSigninIfNotAuth, async (req, res) => {
   const user = await UserModel.findOne({ _id: req.user });
 
@@ -69,9 +70,9 @@ router.get("/:username/chartdata", async (req, res) => {
   const user = await UserModel.findOne({ username: "wbrown" });
   res.json({ chartData: user.chartData });
 });
-router.delete("/:username/logout", async (req, res) => {
+router.get("/:username/logout", (req, res) => {
   try {
-    await req.logout();
+    req.logout();
     res.send({ loggedOut: true });
   } catch (err) {
     res.send({ loggedOut: false });

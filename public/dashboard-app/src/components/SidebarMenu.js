@@ -14,10 +14,7 @@ function SidebarMenu() {
 
   async function handleLogout() {
     const logoutRequest = await fetch(
-      `http://localhost:4000/dashboard/${username}/logout`,
-      {
-        method: "Delete",
-      }
+      `http://localhost:4000/dashboard/${username}/logout`
     );
     const isLoggedOut = await logoutRequest.json();
     if (isLoggedOut) window.location.href = "/";
