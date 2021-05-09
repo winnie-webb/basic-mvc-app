@@ -15,4 +15,7 @@
   .dashboard {
     grid-template-columns: 1fr;
   }
+  .workoutlog {
+    height: auto;
+  }
 }

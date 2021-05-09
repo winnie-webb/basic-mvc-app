@@ -147,3 +147,10 @@
     transform: rotate(360deg);
   }
 }
+
+@media (max-width: 650px) {
+  .workoutlog__exerciseWrapper {
+    height: auto;
+    overflow: none;
+  }
+}
