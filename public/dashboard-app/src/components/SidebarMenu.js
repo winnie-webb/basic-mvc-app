@@ -6,14 +6,26 @@ import "./css/SidebarMenu.css";
 import { IconButton } from "@material-ui/core";
 import { NavLink } from "react-router-dom";
 
-function SidebarMenu(props) {
+function SidebarMenu() {
   const iconThemes = {
     large: { fontSize: "3.5rem", color: "white" },
   };
+  const username = localStorage.getItem("username");
+
+  async function handleLogout() {
+    const logoutRequest = await fetch(
+      `http://localhost:4000/dashboard/${username}/logout`,
+      {
+        method: "Delete",
+      }
+    );
+    const isLoggedOut = await logoutRequest.json();
+    if (isLoggedOut) window.location.href = "/";
+  }
   return (
     <aside className="sidebar">
       <div className="sidebar__logout" style={{ color: "#fff" }}>
-        Logout
+        <span onClick={handleLogout}>Logout</span>
       </div>
       <div className="menus-wrapper">
         <NavLink to="/">

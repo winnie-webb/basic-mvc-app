@@ -69,4 +69,12 @@ router.get("/:username/chartdata", async (req, res) => {
   const user = await UserModel.findOne({ username: "wbrown" });
   res.json({ chartData: user.chartData });
 });
+router.delete("/:username/logout", async (req, res) => {
+  try {
+    await req.logout();
+    res.send({ loggedOut: true });
+  } catch (err) {
+    res.send({ loggedOut: false });
+  }
+});
 module.exports = router;

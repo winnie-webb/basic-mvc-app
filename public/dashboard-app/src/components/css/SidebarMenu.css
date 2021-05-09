@@ -11,6 +11,9 @@
   width: 100%;
   padding: 1rem;
 }
+.sidebar__logout span {
+  cursor: pointer;
+}
 .menus-wrapper {
   display: grid;
   justify-items: center;
