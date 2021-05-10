@@ -13,7 +13,7 @@ function SidebarMenu() {
   const username = localStorage.getItem("username");
 
   async function handleLogout() {
-    const logoutRequest = await fetch(`dashboard/${username}/logout`);
+    const logoutRequest = await fetch(`/dashboard/${username}/logout`);
     const isLoggedOut = await logoutRequest.json();
     if (isLoggedOut) window.location.href = "/";
   }

@@ -17,7 +17,7 @@ function WorkoutLog() {
   const currentDate = new Date().toDateString();
 
   useEffect(() => {
-    fetch(`dashboard/${username}/exercises`)
+    fetch(`/dashboard/${username}/exercises`)
       .then((res) => {
         setIsLoading(false);
         return res.json();
@@ -26,6 +26,7 @@ function WorkoutLog() {
         setExercises(res.exercises);
       })
       .catch((err) => {
+        console.error(err);
         setExercises([]);
         setIsLoading(false);
       });
@@ -62,11 +63,10 @@ function WorkoutLog() {
       },
       body: JSON.stringify({ exercises }),
     };
-    console.log(requestData);
     try {
-      fetch(`dashboard/${username}/exercises`, requestData);
+      fetch(`/dashboard/${username}/exercises`, requestData);
     } catch (err) {
-      console.log(exercises);
+      console.error(err);
       setExercises([]);
     }
   }
