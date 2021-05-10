@@ -16,13 +16,14 @@ router.patch("/:username/exercises", async (req, res) => {
   const { exercises } = req.body;
   console.log(exercises);
   try {
-    const user = await UserModel.findOneAndUpdate({
-      username: "wbrown ",
-      exercises: exercises,
+    const user = await UserModel.findOne({
+      _id: req.user,
     });
+    user.exercises = exercises;
     await user.save();
     res.json({ saved: true });
   } catch (err) {
+    console.log(err)
     res.json({ saved: false });
   }
 });
@@ -31,10 +32,10 @@ router.delete("/:username/exercises", async (req, res) => {
   const { exercises } = req.body;
   console.log(exercises);
   try {
-    const user = await UserModel.findOneAndUpdate({
-      username: "wbrown ",
-      exercises: exercises,
+    const user = await UserModel.findOne({
+      _id: req.user,
     });
+    user.exercises = exercises;
     await user.save();
     res.json({ saved: true });
   } catch (err) {
@@ -42,24 +43,23 @@ router.delete("/:username/exercises", async (req, res) => {
   }
 });
 router.get("/:username/exercises", async (req, res) => {
-  const user = await UserModel.findOne({ username: "wbrown" });
-  res.json({ exercises: user.exercises });
-  // try {
-  //   const user = await UserModel.findOne({ _id: req.user });
-  //   if (!user) res.redirect("/auth/signin");
-  //   res.send(JSON.stringify(user.exercises));
-  // } catch (err) {
-  //   console.log(err);
-  // }
+  try {
+    const user = await UserModel.findOne({ _id: req.user });
+    if (!user) res.redirect("/auth/signin");
+    console.log("Get exercises")
+    res.json({ exercises: user.exercises });
+  } catch (err) {
+    console.log(err);
+  }
 });
 
 router.patch("/:username/chartdata", async (req, res) => {
   const { chartData } = req.body;
   try {
-    const user = await UserModel.findOneAndUpdate({
-      username: "wbrown ",
-      chartData: chartData,
+    const user = await UserModel.findOne({
+      _id: req.user,
     });
+    user.chartData = chartData;
     await user.save();
     res.json({ saved: true });
   } catch (err) {
@@ -67,7 +67,7 @@ router.patch("/:username/chartdata", async (req, res) => {
   }
 });
 router.get("/:username/chartdata", async (req, res) => {
-  const user = await UserModel.findOne({ username: "wbrown" });
+  const user = await UserModel.findOne({ _id: req.user });
   res.json({ chartData: user.chartData });
 });
 router.get("/:username/logout", (req, res) => {
