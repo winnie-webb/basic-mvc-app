@@ -7,14 +7,14 @@ function Analytics() {
   const [chartData, setChartData] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:4000/dashboard/${username}/exercises`)
+    fetch(`dashboard/${username}/exercises`)
       .then((res) => res.json())
       .then((res) => setExercises(res.exercises))
       .catch((err) => setExercises([]));
   }, [username]);
 
   useEffect(() => {
-    fetch(`http://localhost:4000/dashboard/${username}/chartdata`)
+    fetch(`dashboard/${username}/chartdata`)
       .then((res) => res.json())
       .then((res) => setChartData(res.chartData))
       .catch((res) => setChartData([]));

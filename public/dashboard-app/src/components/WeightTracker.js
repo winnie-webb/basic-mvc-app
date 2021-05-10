@@ -6,7 +6,7 @@ function WeightTracker() {
   const username = localStorage.getItem("username");
 
   useEffect(() => {
-    fetch(`http://localhost:4000/dashboard/${username}/chartdata`)
+    fetch(`dashboard/${username}/chartdata`)
       .then((res) => res.json())
       .then((res) => setChartData(res.chartData))
       .catch((res) => setChartData([]));
@@ -36,10 +36,7 @@ function WeightTracker() {
     };
     console.log(requestData);
     try {
-      fetch(
-        `http://localhost:4000/dashboard/${username}/chartdata`,
-        requestData
-      );
+      fetch(`dashboard/${username}/chartdata`, requestData);
     } catch (err) {
       setChartData([]);
     }
