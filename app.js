@@ -48,7 +48,8 @@ app.set("views", viewsDirPath);
 
 // Initialize Routes
 app.get("/", redirectToDashboardIfAlreadyAuth, async (req, res) => {
-  res.render("index");
+  const { fromMySite } = req.query;
+  res.render("index", { fromMySite });
 });
 const AuthRouter = require("./routes/AuthRouter");
 const DashboardRouter = require("./routes/DashboardRouter");
