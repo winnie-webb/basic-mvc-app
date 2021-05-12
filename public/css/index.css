@@ -531,3 +531,34 @@ a {
   top: 30%;
   transform: translateY(-50%);
 }
+@media (max-width: 1400px) {
+  .mockup-wrapper h3 {
+    top: 10%;
+    text-align: center;
+  }
+  .mockup-btn {
+    bottom: 3rem;
+    left: 50%;
+    transform: translate(-50%, 0);
+  }
+}
+@media (max-width: 650px) {
+  .mockup-wrapper img {
+    width: 45rem;
+    height: 30rem;
+  }
+  .mockup-wrapper h3 {
+    right: 0;
+    font-size: 3rem;
+  }
+  .mockup-btn {
+    bottom: 5rem;
+    padding: 1.5rem 3rem;
+  }
+}
+@media (max-width: 420px) {
+  .mockup-wrapper img {
+    width: 35rem;
+    height: 20rem;
+  }
+}
