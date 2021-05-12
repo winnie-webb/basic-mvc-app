@@ -378,7 +378,7 @@ a {
   position: relative;
   overflow: hidden;
   height: 100vh;
-  background-image: linear-gradient(to left, #00f260, #0575e6);
+  background-color: #0575e6;
   padding: 0;
 }
 .footer__content {
