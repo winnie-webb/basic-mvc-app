@@ -238,6 +238,7 @@ a {
 .feature__content {
   font-size: 2rem;
   width: 50rem;
+  line-height: 2.6rem;
 }
 .feature__main {
   margin-top: 3rem;
@@ -377,7 +378,7 @@ a {
   position: relative;
   overflow: hidden;
   height: 100vh;
-  background-color: #204efa;
+  background-image: linear-gradient(to left, #00f260, #0575e6);
   padding: 0;
 }
 .footer__content {
@@ -483,4 +484,50 @@ a {
     opacity: 1;
     transform: translateX(0);
   }
+}
+.mockup-wrapper {
+  margin: 8rem auto;
+  width: 90%;
+  height: 90vh;
+  box-shadow: 0 0.2rem 2rem rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+  border-radius: 1rem;
+  background-image: linear-gradient(to right, #12c2e9, #c471ed, #f64f59);
+}
+.mockup-wrapper img {
+  position: absolute;
+  left: -7rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.mockup-btn {
+  position: absolute;
+  bottom: 20rem;
+  padding: 3rem 6rem;
+  border-radius: 4rem;
+  left: 70%;
+  transform: translateX(-50%);
+  background-color: #12c2e9;
+}
+.mockup-fade-left {
+  animation: mockup-fade-left 1.2s;
+}
+@keyframes mockup-fade-left {
+  from {
+    opacity: 0;
+    transform: translate(-5rem, -50%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(0, -50%);
+  }
+}
+.mockup-wrapper h3 {
+  color: #fff;
+  font-size: 4rem;
+  position: absolute;
+  right: 10rem;
+  top: 30%;
+  transform: translateY(-50%);
 }
