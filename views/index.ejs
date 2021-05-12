@@ -17,7 +17,7 @@
   <script src="./js/myCustomAnimation.js" defer></script>
 </head>
 
-<body>
+<body data-barba="wrapper">
   <header class="header">
     <div class="header__logoWrapper">
       <a href="/">
@@ -45,122 +45,123 @@
             </a>
             <% } %>
   </header>
+  <main data-barba="container" data-barba-namespace="home">
+    <section class="section-hero">
+      <aside class="hero-main">
+        <h2 data-animate="fade-left" class="hero-main__heading">
+          Fitness starts with organization
+        </h2>
 
-  <section class="section-hero">
-    <aside class="hero-main">
-      <h2 data-animate="fade-left" class="hero-main__heading">
-        Fitness starts with organization
-      </h2>
+        <p data-animate="fade-left" class="hero-main__content">
+          Take the timeout to organize your workout sessions so that you can be
+          as effective as possible. We will the whole process as simple as
+          possible.
+        </p>
 
-      <p data-animate="fade-left" class="hero-main__content">
-        Take the timeout to organize your workout sessions so that you can be
-        as effective as possible. We will the whole process as simple as
-        possible.
-      </p>
+        <a href="/auth/register">
+          <div data-animate="fade-left" class="btn get_started-btn">
+            Get Started
+          </div>
+        </a>
+      </aside>
 
-      <a href="/auth/register">
-        <div data-animate="fade-left" class="btn get_started-btn">
-          Get Started
+      <aside data-animate="fade-right" class="hero-svg-wrapper">
+        <img width="680px" height="auto" class="hero-svg" alt="workout undraw svg" src="./svg/hero_svg.svg" />
+      </aside>
+    </section>
+
+    <section class="section-features">
+      <aside class="feature-def feature feature1">
+        <div class="feature__image-wrapper">
+          <img data-animate="fade-left" class="feature__image" alt="about us undraw svg" src="./svg/about-us_svg.svg" />
         </div>
-      </a>
-    </aside>
 
-    <aside data-animate="fade-right" class="hero-svg-wrapper">
-      <img width="680px" height="auto" class="hero-svg" alt="workout undraw svg" src="./svg/hero_svg.svg" />
-    </aside>
-  </section>
+        <div class="feature__main">
+          <h2 data-animate="fade-right" class="feature__heading">
+            What we’re about
+          </h2>
+          <p data-animate="fade-right" class="feature__content">
+            Etracky is an online exercise tracker where structuring your
+            workouts has never been easier. We do extensive research on the best
+            features and turn them into this concise exercise tracking tool.
+          </p>
+        </div>
+      </aside>
 
-  <section class="section-features">
-    <aside class="feature-def feature feature1">
-      <div class="feature__image-wrapper">
-        <img data-animate="fade-left" class="feature__image" alt="about us undraw svg" src="./svg/about-us_svg.svg" />
-      </div>
+      <aside class="feature-def feature feature2">
+        <div class="feature__main">
+          <h2 data-animate="fade-left" class="feature__heading">
+            Track Your Progress
+          </h2>
+          <p data-animate="fade-left" class="feature__content">
+            Utilize our simple yet practical dashboard and make your life
+            easier. See your progress with beautifully designed graphs and never
+            struggle again to complete exercise routine.
+          </p>
+        </div>
 
-      <div class="feature__main">
-        <h2 data-animate="fade-right" class="feature__heading">
-          What we’re about
-        </h2>
-        <p data-animate="fade-right" class="feature__content">
-          Etracky is an online exercise tracker where structuring your
-          workouts has never been easier. We do extensive research on the best
-          features and turn them into this concise exercise tracking tool.
-        </p>
-      </div>
-    </aside>
+        <div data-animate="fade-right" class="feature__image-wrapper">
+          <img class="feature__image" alt="track progress undraw svg" src="./svg/track-progress_svg.svg" />
+        </div>
+      </aside>
 
-    <aside class="feature-def feature feature2">
-      <div class="feature__main">
-        <h2 data-animate="fade-left" class="feature__heading">
-          Track Your Progress
-        </h2>
-        <p data-animate="fade-left" class="feature__content">
-          Utilize our simple yet practical dashboard and make your life
-          easier. See your progress with beautifully designed graphs and never
-          struggle again to complete exercise routine.
-        </p>
-      </div>
+      <aside class="feature-def feature feature3">
+        <div data-animate="fade-left" class="feature__image-wrapper">
+          <img class="feature__image" alt="iphone mockup graph" src="./svg/navigator_svg.svg" />
+        </div>
 
-      <div data-animate="fade-right" class="feature__image-wrapper">
-        <img class="feature__image" alt="track progress undraw svg" src="./svg/track-progress_svg.svg" />
-      </div>
-    </aside>
+        <div class="feature__main">
+          <h2 data-animate="fade-right" class="feature__heading">
+            Easy To Navigate
+          </h2>
+          <p data-animate="fade-right" class="feature__content">
+            We have combined rich features with a straightforward interface.
+            Register now and relish in our platform to your heart’s content.
+            Give it a try. We know you’ll love it. Etracky is here for you.
+          </p>
+        </div>
+      </aside>
+    </section>
 
-    <aside class="feature-def feature feature3">
-      <div data-animate="fade-left" class="feature__image-wrapper">
-        <img class="feature__image" alt="iphone mockup graph" src="./svg/navigator_svg.svg" />
-      </div>
-
-      <div class="feature__main">
-        <h2 data-animate="fade-right" class="feature__heading">
-          Easy To Navigate
-        </h2>
-        <p data-animate="fade-right" class="feature__content">
-          We have combined rich features with a straightforward interface.
-          Register now and relish in our platform to your heart’s content.
-          Give it a try. We know you’ll love it. Etracky is here for you.
-        </p>
-      </div>
-    </aside>
-  </section>
-
-  <section class="mockup-wrapper">
-    <img data-animate="mockup-fade-left" src="./img/iphone-mockup.png" width="650px" height="400px" />
-    <h3>Simple, Clean, Straightforward</h3>
-    <a href="/dashboard/?fromMySite=true" class="mockup-btn">See a demo</a>
-  </section>
-  <section class="section-reviews">
-    <h2 class="review-heading">What people are saying about us</h2>
-    <aside class="reviews">
-      <div data-animate="fade-left" id="review-1" class="review">
-        <span class="review__stars">★★★★★</span>
-        <span class="review__quotation">"</span>
-        Best exercise tracker application ever
-      </div>
-      <div data-animate="fade-right" id="review-2" class="review">
-        <span class="review__stars">★★★★★</span>
-        <span class="review__quotation">"</span>
-        Easy, concise, clean just great. I love it
-      </div>
-      <div data-animate="fade-left" id="review-3" class="review">
-        <span class="review__stars">★★★★★</span>
-        <span class="review__quotation">"</span>
-        I have tried a lot of online trackers but none of them were as good as
-        etracky
-      </div>
-      <div data-animate="fade-left" id="review-4" class="review">
-        <span class="review__stars">★★★★★</span>
-        <span class="review__quotation">"</span>
-        I would recommend this to anyone who is having trouble organizing
-        their exercises
-      </div>
-      <div data-animate="fade-right" id="review-5" class="review">
-        <span class="review__stars">★★★★★</span>
-        <span class="review__quotation">"</span>
-        Five stars ! I was struggling with keeping up with my routine but when
-        I started using etracky everything changed
-      </div>
-    </aside>
-  </section>
+    <section class="mockup-wrapper">
+      <img data-animate="mockup-fade-left" src="./img/iphone-mockup.png" width="650px" height="400px" />
+      <h3>Simple, Clean, Straightforward</h3>
+      <a href="/dashboard/?fromMySite=true" class="mockup-btn">See a demo</a>
+    </section>
+    <section class="section-reviews">
+      <h2 class="review-heading">What people are saying about us</h2>
+      <aside class="reviews">
+        <div data-animate="fade-left" id="review-1" class="review">
+          <span class="review__stars">★★★★★</span>
+          <span class="review__quotation">"</span>
+          Best exercise tracker application ever
+        </div>
+        <div data-animate="fade-right" id="review-2" class="review">
+          <span class="review__stars">★★★★★</span>
+          <span class="review__quotation">"</span>
+          Easy, concise, clean just great. I love it
+        </div>
+        <div data-animate="fade-left" id="review-3" class="review">
+          <span class="review__stars">★★★★★</span>
+          <span class="review__quotation">"</span>
+          I have tried a lot of online trackers but none of them were as good as
+          etracky
+        </div>
+        <div data-animate="fade-left" id="review-4" class="review">
+          <span class="review__stars">★★★★★</span>
+          <span class="review__quotation">"</span>
+          I would recommend this to anyone who is having trouble organizing
+          their exercises
+        </div>
+        <div data-animate="fade-right" id="review-5" class="review">
+          <span class="review__stars">★★★★★</span>
+          <span class="review__quotation">"</span>
+          Five stars ! I was struggling with keeping up with my routine but when
+          I started using etracky everything changed
+        </div>
+      </aside>
+    </section>
+  </main>
   <footer class="footer">
     <section class="footer__svgWrapper">
       <div class="custom-shape-divider-top-1617651001">
