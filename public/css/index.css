@@ -488,7 +488,7 @@ a {
 .mockup-wrapper {
   margin: 8rem auto;
   width: 90%;
-  height: 90vh;
+  height: 55rem;
   box-shadow: 0 0.2rem 2rem rgba(0, 0, 0, 0.1);
   position: relative;
   overflow: hidden;
@@ -535,6 +535,8 @@ a {
   .mockup-wrapper h3 {
     top: 10%;
     text-align: center;
+    position: relative;
+    right: 0;
   }
   .mockup-btn {
     bottom: 3rem;
