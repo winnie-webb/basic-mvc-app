@@ -1,0 +1,27 @@
+<header class="header">
+    <div class="header__logoWrapper">
+      <a href="/">
+        <h1 class="header__logo">etracky</h1>
+      </a>
+    </div>
+    <% if (fromMySite){ %>
+      <div class="header__btnWrapper">
+
+        <a class="btn header__btn header__signup-btn" href="/dashboard?fromMySite=true">
+          Demo
+        </a>
+        <a class="btn header__btn header__login-btn" href="/">
+          Create account
+        </a>
+        </a>
+        <% } else { %>
+          <div class="header__btnWrapper">
+            <a class="btn header__btn header__login-btn" href="/auth/signin">
+              Login
+            </a>
+            <a class="btn header__btn header__signup-btn" href="/auth/register">
+              Signup
+            </a>
+            </a>
+            <% } %>
+  </header>

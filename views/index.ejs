@@ -1,217 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Etracky is an online exercise tracker where structuring your
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Etracky is an online exercise tracker where structuring your
     workouts has never been easier. We do extensive research on the best
-    features and turn them into this concise exercise tracking tool." />
-  <title>Etracky</title>
-  <link rel="stylesheet" href="./css/index.css" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,500;0,700;1,400&display=swap"
-    rel="stylesheet" />
+    features and turn them into this concise exercise tracking tool."
+    />
+    <title>Etracky</title>
+    <link rel="stylesheet" href="./css/index.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,500;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-  <script src="./js/myCustomAnimation.js" defer></script>
-</head>
+  <body>
+    <%- include("./partials/header.ejs") %>
 
-<body data-barba="wrapper">
-  <header class="header">
-    <div class="header__logoWrapper">
-      <a href="/">
-        <h1 class="header__logo">etracky</h1>
-      </a>
-    </div>
-    <% if (fromMySite){ %>
-      <div class="header__btnWrapper">
-
-        <a class="btn header__btn header__signup-btn" href="/dashboard?fromMySite=true">
-          Demo
-        </a>
-        <a class="btn header__btn header__login-btn" href="/">
-          Create account
-        </a>
-        </a>
-        <% } else { %>
-          <div class="header__btnWrapper">
-            <a class="btn header__btn header__login-btn" href="/auth/signin">
-              Login
-            </a>
-            <a class="btn header__btn header__signup-btn" href="/auth/register">
-              Signup
-            </a>
-            </a>
-            <% } %>
-  </header>
-  <main data-barba="container" data-barba-namespace="home">
-    <section class="section-hero">
-      <aside class="hero-main">
-        <h2 data-animate="fade-left" class="hero-main__heading">
-          Fitness starts with organization
-        </h2>
-
-        <p data-animate="fade-left" class="hero-main__content">
-          Take the timeout to organize your workout sessions so that you can be
-          as effective as possible. We will the whole process as simple as
-          possible.
-        </p>
-
-        <a href="/auth/register">
-          <div data-animate="fade-left" class="btn get_started-btn">
-            Get Started
-          </div>
-        </a>
-      </aside>
-
-      <aside data-animate="fade-right" class="hero-svg-wrapper">
-        <img width="680px" height="auto" class="hero-svg" alt="workout undraw svg" src="./svg/hero_svg.svg" />
-      </aside>
-    </section>
-
-    <section class="section-features">
-      <aside class="feature-def feature feature1">
-        <div class="feature__image-wrapper">
-          <img data-animate="fade-left" class="feature__image" alt="about us undraw svg" src="./svg/about-us_svg.svg" />
-        </div>
-
-        <div class="feature__main">
-          <h2 data-animate="fade-right" class="feature__heading">
-            What we’re about
-          </h2>
-          <p data-animate="fade-right" class="feature__content">
-            Etracky is an online exercise tracker where structuring your
-            workouts has never been easier. We do extensive research on the best
-            features and turn them into this concise exercise tracking tool.
-          </p>
-        </div>
-      </aside>
-
-      <aside class="feature-def feature feature2">
-        <div class="feature__main">
-          <h2 data-animate="fade-left" class="feature__heading">
-            Track Your Progress
-          </h2>
-          <p data-animate="fade-left" class="feature__content">
-            Utilize our simple yet practical dashboard and make your life
-            easier. See your progress with beautifully designed graphs and never
-            struggle again to complete exercise routine.
-          </p>
-        </div>
-
-        <div data-animate="fade-right" class="feature__image-wrapper">
-          <img class="feature__image" alt="track progress undraw svg" src="./svg/track-progress_svg.svg" />
-        </div>
-      </aside>
-
-      <aside class="feature-def feature feature3">
-        <div data-animate="fade-left" class="feature__image-wrapper">
-          <img class="feature__image" alt="iphone mockup graph" src="./svg/navigator_svg.svg" />
-        </div>
-
-        <div class="feature__main">
-          <h2 data-animate="fade-right" class="feature__heading">
-            Easy To Navigate
-          </h2>
-          <p data-animate="fade-right" class="feature__content">
-            We have combined rich features with a straightforward interface.
-            Register now and relish in our platform to your heart’s content.
-            Give it a try. We know you’ll love it. Etracky is here for you.
-          </p>
-        </div>
-      </aside>
-    </section>
-
-    <section class="mockup-wrapper">
-      <img data-animate="mockup-fade-left" src="./img/iphone-mockup.png" width="650px" height="400px" />
-      <h3>Simple, Clean, Straightforward</h3>
-      <a href="/dashboard/?fromMySite=true" class="mockup-btn">See a demo</a>
-    </section>
-    <section class="section-reviews">
-      <h2 class="review-heading">What people are saying about us</h2>
-      <aside class="reviews">
-        <div data-animate="fade-left" id="review-1" class="review">
-          <span class="review__stars">★★★★★</span>
-          <span class="review__quotation">"</span>
-          Best exercise tracker application ever
-        </div>
-        <div data-animate="fade-right" id="review-2" class="review">
-          <span class="review__stars">★★★★★</span>
-          <span class="review__quotation">"</span>
-          Easy, concise, clean just great. I love it
-        </div>
-        <div data-animate="fade-left" id="review-3" class="review">
-          <span class="review__stars">★★★★★</span>
-          <span class="review__quotation">"</span>
-          I have tried a lot of online trackers but none of them were as good as
-          etracky
-        </div>
-        <div data-animate="fade-left" id="review-4" class="review">
-          <span class="review__stars">★★★★★</span>
-          <span class="review__quotation">"</span>
-          I would recommend this to anyone who is having trouble organizing
-          their exercises
-        </div>
-        <div data-animate="fade-right" id="review-5" class="review">
-          <span class="review__stars">★★★★★</span>
-          <span class="review__quotation">"</span>
-          Five stars ! I was struggling with keeping up with my routine but when
-          I started using etracky everything changed
-        </div>
-      </aside>
-    </section>
-  </main>
-  <footer class="footer">
-    <section class="footer__svgWrapper">
-      <div class="custom-shape-divider-top-1617651001">
-        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-          <path
-            d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
-            class="shape-fill"></path>
-        </svg>
-      </div>
-    </section>
-
-    <section class="footer__content">
-      <h2 class="footer__contentHeading">
-        Would you like to reach out to us ?
-      </h2>
-      <div class="footer__socialLinks">
-        <a href="https://www.instagram.com/iamwinston15/">
-          <div class="social-link">
-            <img width="50px" height="50px" alt="instagram icon svg" src="./svg/instagram-icon_svg.svg" />
-          </div>
-        </a>
-        <a href="https://www.instagram.com/iamwinston15/">
-          <div class="social-link">
-            <img width="50px" height="50px" alt="facebook icon svg" src="./svg/facebook-icon_svg.svg" />
-          </div>
-        </a>
-        <a href="https://www.instagram.com/iamwinston15/">
-          <div class="social-link">
-            <img width="50px" height="50px" alt="twitter icon svg" src="./svg/twitter-icon_svg.svg" />
-          </div>
-        </a>
-      </div>
-    </section>
-  </footer>
-
-  <!--Start of Tawk.to Script-->
-  <!-- <script type="text/javascript">
-      var Tawk_API = Tawk_API || {},
-        Tawk_LoadStart = new Date();
-      (function () {
-        var s1 = document.createElement("script"),
-          s0 = document.getElementsByTagName("script")[0];
-        s1.async = true;
-        s1.src = "https://embed.tawk.to/606d2994067c2605c0bfeb8f/1f2l6kqqi";
-        s1.charset = "UTF-8";
-        s1.setAttribute("crossorigin", "*");
-        s0.parentNode.insertBefore(s1, s0);
-      })();
-    </script> -->
-  <!--End of Tawk.to Script-->
-</body>
-
+    <main>
+      <article>
+        <%- include("./partials/hero.ejs") %>
+        <%-include("./partials/features.ejs") %>
+        <section class="mockup-wrapper">
+          <img
+            data-animate="mockup-fade-left"
+            src="./img/iphone-mockup.png"
+            width="650px"
+            height="400px"
+          />
+          <h3>Simple, Clean, Straightforward</h3>
+          <a href="/dashboard/?fromMySite=true" class="mockup-btn"
+            >See a demo</a
+          >
+        </section>
+        <%- include("./partials/reviews.ejs") %> <%-
+        include("./partials/footer.ejs") %>
+      </article>
+    </main>
+  </body>
 </html>

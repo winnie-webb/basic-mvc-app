@@ -446,45 +446,7 @@ a {
     font-size: 1rem;
   }
 }
-/*  */
-/* Fade in animations */
-.fade-right {
-  animation: fade-right 1.2s 1;
-}
-.fade-left {
-  animation: fade-left 1.2s 1;
-}
-@keyframes fade-down {
-  from {
-    opacity: 0;
-    transform: translateY(-5rem);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-@keyframes fade-right {
-  from {
-    opacity: 0;
-    transform: translateX(8rem);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
 
-@keyframes fade-left {
-  from {
-    opacity: 0;
-    transform: translateX(-5rem);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
 .mockup-wrapper {
   margin: 8rem auto;
   width: 90%;
@@ -510,19 +472,7 @@ a {
   transform: translateX(-50%);
   background-color: #12c2e9;
 }
-.mockup-fade-left {
-  animation: mockup-fade-left 1.2s;
-}
-@keyframes mockup-fade-left {
-  from {
-    opacity: 0;
-    transform: translate(-5rem, -50%);
-  }
-  to {
-    opacity: 1;
-    transform: translate(0, -50%);
-  }
-}
+
 .mockup-wrapper h3 {
   color: #fff;
   font-size: 4rem;
