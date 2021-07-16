@@ -9,7 +9,16 @@ html {
   font-family: "Rubik", sans-serif;
   overflow-x: hidden;
 }
-
+@media (max-width: 760px) {
+  html {
+    font-size: 8px;
+  }
+}
+@media (max-width: 360px) {
+  html {
+    font-size: 7px;
+  }
+}
 body {
   font-size: 1.6rem;
   overflow-x: hidden;
@@ -86,29 +95,6 @@ body {
   .header__btn {
     padding: 0.6rem;
     width: 14rem;
-  }
-}
-
-@media (max-width: 450px) {
-  .header {
-    padding: 1.5rem;
-    /* height: rem; */
-  }
-  .header__btnWrapper {
-    /* margin-top: rem; */
-    flex-direction: row-reverse;
-  }
-
-  .header__btn {
-    width: fit-content;
-    padding: 0rem;
-    background: none !important;
-  }
-  .header__login-btn {
-    color: rgb(114, 114, 114);
-  }
-  .header__signup-btn {
-    color: #000;
   }
 }
 
